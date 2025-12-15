@@ -1,0 +1,11 @@
+<footer>
+  <mat-toolbar class="footer-nav">
+    @for (link of footerLinks; track $index) {
+      <app-link-button
+        icon="{{ link.icon }}"
+        label="{{ link.label }}"
+        route="{{ link.route }}"
+      ></app-link-button>
+    }
+  </mat-toolbar>
+</footer>

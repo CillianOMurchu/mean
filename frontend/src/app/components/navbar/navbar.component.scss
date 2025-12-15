@@ -1,0 +1,14 @@
+.navbar {
+  gap: 12px;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  max-height: var(--header-height);
+
+  .logo {
+    padding: var(--small-gap);
+    height: 100%;
+  }
+}
