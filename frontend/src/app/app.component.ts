@@ -14,7 +14,6 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/internal/operators/map';
 import { MatIconModule } from '@angular/material/icon';
-import { TW_CLASSES } from './styles/tailwind-classes.const';
 import { MatListModule } from '@angular/material/list';
 
 @Component({
@@ -34,7 +33,6 @@ import { MatListModule } from '@angular/material/list';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  // TW_CLASSES = TW_CLASSES;
 
   breakpointObserver = inject(BreakpointObserver);
 
