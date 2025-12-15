@@ -23,7 +23,8 @@
       "@models/*": ["src/app/models/*"],
       "@components/*": ["src/app/components/*"],
       "@pages/*": ["src/app/pages/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@variables/*": ["src/styles/variables/*"]
     }
   },
   "angularCompilerOptions": {

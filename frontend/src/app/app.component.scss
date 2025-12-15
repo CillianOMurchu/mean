@@ -8,3 +8,20 @@ main {
   padding: 20px;
   background: #f4f4f4;
 }
+
+:host {
+  display: block;
+  height: 100vh;
+}
+
+/* Target the mat-sidenav-container directly */
+mat-sidenav-container {
+  /* Ensure it takes up the remaining vertical space */
+  height: calc(100% - 64px); /* Assuming 64px tall toolbar */
+}
+
+/* Tailwind takes care of most styling, but ensuring list item size is clean */
+.mat-mdc-list-item {
+  height: auto !important;
+  padding: 0 !important;
+}

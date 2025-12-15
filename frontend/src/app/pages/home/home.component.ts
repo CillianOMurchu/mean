@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { ProductListComponent } from '@components/product/product-list/product-list.component';
 
 @Component({
   selector: 'app-home',
-  imports: [ProductListComponent],
+  imports: [],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
