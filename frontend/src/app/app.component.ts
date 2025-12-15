@@ -6,7 +6,12 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import {
+  Router,
+  RouterLink,
+  RouterModule,
+  RouterOutlet,
+} from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -22,6 +27,7 @@ import { MatListModule } from '@angular/material/list';
   styleUrl: './app.component.scss',
   imports: [
     RouterOutlet,
+    RouterModule,
     RouterLink,
     NavbarComponent,
     FooterComponent,
@@ -33,16 +39,12 @@ import { MatListModule } from '@angular/material/list';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-
-  breakpointObserver = inject(BreakpointObserver);
-
   title = 'Peach Nutrition';
-
+  breakpointObserver = inject(BreakpointObserver);
   drawerOpen = signal(false);
-
   navItems = [
-    { label: 'Home', icon: 'home', route: 'home' },
-    { label: 'Products', icon: 'inventory', route: 'products' },
+    { label: 'Home', icon: 'home', route: '/' },
+    { label: 'Products', icon: 'inventory', route: '/products' },
   ];
 
   isLargeScreen = toSignal(
@@ -52,15 +54,11 @@ export class AppComponent {
     { initialValue: false },
   );
 
-  // Computed signal for the Sidenav's display mode (side or over)
   sidenavMode = computed<'side' | 'over'>(() =>
     this.isLargeScreen() ? 'side' : 'over',
   );
 
-  activeRoute = signal('Home');
-
-  constructor() {
-    // Effect to automatically open the sidenav when the screen becomes large
+  constructor(private router: Router) {
     effect(() => {
       if (this.isLargeScreen()) {
         this.drawerOpen.set(true);
@@ -68,13 +66,20 @@ export class AppComponent {
     });
   }
 
+  checkRouter = computed(() => {
+    return this.router.url === '/products';
+  });
+
+  showRoute() {
+    console.log(this.router.url);
+  }
+
   toggleSidenav() {
     this.drawerOpen.set(!this.drawerOpen());
   }
 
-  setActiveRoute(route: string) {
-    console.log('route is ', route);
-    this.activeRoute.set(route);
+  checkLinkActive(route: string): string {
+    return this.router.url === route ? 'active' : '';
   }
 
   closeSidenavOnSmallScreen() {

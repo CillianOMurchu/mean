@@ -10,22 +10,18 @@
     >
       <div class="p-4">
         <h3 class="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">
-          Navigation
+          Menu
         </h3>
-        <mat-nav-list class="space-y-1">
-          @for (item of navItems; track item.route) {
+        <mat-nav-list>
+          @for (item of navItems; let i = $index; track item.route) {
             <a
               mat-list-item
-              [class]="[
-                'flex items-center',
-                activeRoute() === item.route ? 'bg-red' : 'text-gray-600',
-              ]"
-              (click)="setActiveRoute(item.route); closeSidenavOnSmallScreen()"
-              routerLink="/{{ item.route }}"
+              [routerLink]="item.route"
+              routerLinkActive="mat-list-item-active"
+              [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+              [tabIndex]="i === 0 ? -1 : 0"
+              >{{ item.route }}</a
             >
-              <mat-icon class="mr-3">{{ item.icon }}</mat-icon>
-              <span>{{ item.label }}</span>
-            </a>
           }
         </mat-nav-list>
       </div>

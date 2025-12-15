@@ -1,16 +1,16 @@
 <mat-toolbar class="navbar">
-  <button
-    mat-icon-button
-    class="lg:hidden mr-4"
-    (click)="toggleSidenav.emit()"
-    aria-label="Toggle navigation menu"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-
   <div class="logo">
     <a routerLink="/">
       <img src="/peach-nutrition-logo.png" alt="Peach Nutrition logo" />
     </a>
   </div>
+
+  <button
+    mat-icon-button
+    class="lg:hidden mr-4 absolute right-0 h-[100%]"
+    (click)="toggleSidenav.emit()"
+    aria-label="Toggle navigation menu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>

@@ -1,6 +1,4 @@
 .app-container {
-  border: 2px solid red;
-
   display: grid;
 }
 
@@ -14,14 +12,7 @@ main {
   height: 100vh;
 }
 
-/* Target the mat-sidenav-container directly */
-mat-sidenav-container {
-  /* Ensure it takes up the remaining vertical space */
-  height: calc(100% - 64px); /* Assuming 64px tall toolbar */
-}
-
-/* Tailwind takes care of most styling, but ensuring list item size is clean */
-.mat-mdc-list-item {
-  height: auto !important;
-  padding: 0 !important;
+.mat-list-item-active{
+  background-color: rgba(0, 0, 0, 0.04);
+  
 }
