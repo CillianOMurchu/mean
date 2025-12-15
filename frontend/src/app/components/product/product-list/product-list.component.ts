@@ -11,9 +11,6 @@ import { ProductType } from 'src/app/types/product.type';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent {
-  private apiService = inject(ApiService);
-
-  products = toSignal(this.apiService.getProducts(), {
-    initialValue: [] as ProductType[],
-  });
+  // private apiService = inject(ApiService);
+  products = inject(ApiService).products$;
 }

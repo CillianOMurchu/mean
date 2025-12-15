@@ -9,12 +9,12 @@ export class IconService {
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-  ) {}
+  ) {
+    this.registerIcons();
+  }
 
   registerIcons(): void {
     const icons = ['steak', 'chess_knight'];
-
-    console.log('Registering icons:', icons);
 
     icons.forEach((icon) => {
       this.matIconRegistry.addSvgIcon(
@@ -22,7 +22,5 @@ export class IconService {
         this.domSanitizer.bypassSecurityTrustResourceUrl(`/icons/${icon}.svg`),
       );
     });
-
-    console.log('Icons registered successfully.', this.matIconRegistry);
   }
 }
