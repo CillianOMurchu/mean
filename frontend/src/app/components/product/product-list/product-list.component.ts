@@ -1,7 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+} from '@angular/core';
 import { ApiService } from '@services/api.service';
-import { ProductType } from 'src/app/types/product.type';
 
 @Component({
   selector: 'app-product-list',
@@ -11,6 +13,5 @@ import { ProductType } from 'src/app/types/product.type';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent {
-  // private apiService = inject(ApiService);
   products = inject(ApiService).products$;
 }

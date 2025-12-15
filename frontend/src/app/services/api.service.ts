@@ -13,6 +13,5 @@ export class ApiService {
     'http://localhost:3000/api/v1/products',
   );
 
-  // Expose products as a Signal
   public readonly products$ = toSignal(this.getProducts$);
 }
