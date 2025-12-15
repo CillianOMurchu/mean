@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
-import { ProductListComponent } from './components/product/product-list/product-list.component';
-import { ProductDetailComponent } from './components/product/product-detail/product-detail.component';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 export const routes: Routes = [
   {
@@ -9,8 +6,33 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/home/home.component').then((m) => m.HomeComponent),
   },
-  { path: 'products', component: ProductListComponent },
-  { path: 'products/:id', component: ProductDetailComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'products',
+    loadComponent: () =>
+      import('./components/product/product-list/product-list.component').then(
+        (m) => m.ProductListComponent,
+      ),
+  },
+  {
+    path: 'products/:id',
+    loadComponent: () =>
+      import(
+        './components/product/product-detail/product-detail.component'
+      ).then((m) => m.ProductDetailComponent),
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./pages/contact/contact.component').then(
+        (m) => m.ContactComponent,
+      ),
+  },
+  {
+    path: 'checkout',
+    loadComponent: () =>
+      import('./pages/checkout/checkout.component').then(
+        (m) => m.CheckoutComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

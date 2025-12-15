@@ -7,6 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import {
+  NavigationEnd,
   Router,
   RouterLink,
   RouterModule,
@@ -15,11 +16,11 @@ import {
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs/internal/operators/map';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { LayoutService } from '@services/layout.service';
+import { filter } from 'rxjs/internal/operators/filter';
 
 @Component({
   selector: 'app-root',
@@ -45,46 +46,29 @@ export class AppComponent {
   navItems = [
     { label: 'Home', icon: 'home', route: '/' },
     { label: 'Products', icon: 'inventory', route: '/products' },
+    { label: 'Contact', icon: 'contact_mail', route: '/contact' },
   ];
-
-  isLargeScreen = toSignal(
-    this.breakpointObserver
-      .observe([Breakpoints.Large, Breakpoints.XLarge])
-      .pipe(map((result) => result.matches)),
-    { initialValue: false },
-  );
-
   sidenavMode = computed<'side' | 'over'>(() =>
     this.isLargeScreen() ? 'side' : 'over',
   );
 
+  isLargeScreen = inject(LayoutService).isLargeScreen;
+
   constructor(private router: Router) {
     effect(() => {
-      if (this.isLargeScreen()) {
-        this.drawerOpen.set(true);
-      }
+      this.drawerOpen.set(this.isLargeScreen());
     });
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => this.onDrawerClose());
   }
 
-  checkRouter = computed(() => {
-    return this.router.url === '/products';
-  });
-
-  showRoute() {
-    console.log(this.router.url);
+  onDrawerClose() {
+    this.drawerOpen.set(false);
   }
 
   toggleSidenav() {
     this.drawerOpen.set(!this.drawerOpen());
-  }
-
-  checkLinkActive(route: string): string {
-    return this.router.url === route ? 'active' : '';
-  }
-
-  closeSidenavOnSmallScreen() {
-    if (this.sidenavMode() === 'over') {
-      this.drawerOpen.set(false);
-    }
   }
 }

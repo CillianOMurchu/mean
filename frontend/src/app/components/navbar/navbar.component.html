@@ -1,4 +1,4 @@
-<mat-toolbar class="navbar">
+<mat-toolbar class="navbar" color="primary">
   <div class="logo">
     <a routerLink="/">
       <img src="/peach-nutrition-logo.png" alt="Peach Nutrition logo" />
@@ -6,10 +6,9 @@
   </div>
 
   <button
-    mat-icon-button
-    class="lg:hidden mr-4 absolute right-0 h-[100%]"
+    matMiniFab
+    aria-label="Example icon button with a menu icon"
     (click)="toggleSidenav.emit()"
-    aria-label="Toggle navigation menu"
   >
     <mat-icon>menu</mat-icon>
   </button>

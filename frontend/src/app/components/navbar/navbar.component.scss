@@ -4,11 +4,16 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  justify-content: center;
+  justify-content: space-between;
   max-height: var(--header-height);
 
   .logo {
     padding: var(--small-gap);
     height: 100%;
+  }
+
+  button {
+    display: grid;
+    padding: 15px;
   }
 }

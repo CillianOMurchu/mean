@@ -7,9 +7,8 @@ main {
   background: #f4f4f4;
 }
 
-:host {
-  display: block;
-  height: 100vh;
+.app-container {
+  min-height: 100vh;
 }
 
 .mat-list-item-active{
