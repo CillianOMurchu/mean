@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
   imports: [MatToolbarModule, RouterLink, MatIconModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
+  standalone: true,
 })
 export class NavbarComponent {
   @Output() toggleSidenav = new EventEmitter<void>();

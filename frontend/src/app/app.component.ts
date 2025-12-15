@@ -6,7 +6,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -23,6 +23,7 @@ import { MatListModule } from '@angular/material/list';
   styleUrl: './app.component.scss',
   imports: [
     RouterOutlet,
+    RouterLink,
     NavbarComponent,
     FooterComponent,
     MatSidenavModule,
@@ -33,7 +34,7 @@ import { MatListModule } from '@angular/material/list';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  TW_CLASSES = TW_CLASSES;
+  // TW_CLASSES = TW_CLASSES;
 
   breakpointObserver = inject(BreakpointObserver);
 
@@ -42,10 +43,8 @@ export class AppComponent {
   drawerOpen = signal(false);
 
   navItems = [
-    { label: 'Home', icon: 'home', route: 'Home' },
-    { label: 'Products', icon: 'inventory', route: 'Products' },
-    { label: 'Customers', icon: 'group', route: 'Customers' },
-    { label: 'Settings', icon: 'settings', route: 'Settings' },
+    { label: 'Home', icon: 'home', route: 'home' },
+    { label: 'Products', icon: 'inventory', route: 'products' },
   ];
 
   isLargeScreen = toSignal(
@@ -60,7 +59,7 @@ export class AppComponent {
     this.isLargeScreen() ? 'side' : 'over',
   );
 
-  activeRoute = signal('');
+  activeRoute = signal('Home');
 
   constructor() {
     // Effect to automatically open the sidenav when the screen becomes large
@@ -76,6 +75,7 @@ export class AppComponent {
   }
 
   setActiveRoute(route: string) {
+    console.log('route is ', route);
     this.activeRoute.set(route);
   }
 
