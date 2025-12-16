@@ -1,15 +1,22 @@
-<mat-grid-list [cols]="cols()" rowHeight="100px">
-  @for (tile of tiles(); track tile) {
-    <mat-grid-tile
-      class="tile"
-      [colspan]="tile.colspan"
-      [rowspan]="tile.rowspan"
-      [style.background]="
-        tile.backgroundColor + ' url(' +
-        tile.images[0].src.replace('/src/assets/', '/assets/') +
-        ') center/contain no-repeat'
-      "
-    >
-    </mat-grid-tile>
+<!--  -->
+@if (isLoading()) {
+  <p>Loading…</p>
+} @else {
+  @if (error()) {
+    <p>Error loading products</p>
+  } @else {
+    <!-- @for (p of products(); track p) { -->
+    <mat-grid-list [cols]="cols()" rowHeight="100px">
+      @for (tile of tiles(); track tile) {
+        <mat-grid-tile
+          class="tile"
+          [colspan]="tile.colspan"
+          [rowspan]="tile.rowspan"
+          [style.background]="tile.backgroundStyle"
+        >
+        </mat-grid-tile>
+      }
+    </mat-grid-list>
+    <!-- } -->
   }
-</mat-grid-list>
+}

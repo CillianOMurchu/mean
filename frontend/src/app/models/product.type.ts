@@ -15,4 +15,5 @@ export interface ProductType {
   images: ProductImage[];
   createdAt: string;
   updatedAt: string;
+  backgroundColor?: string;
 }

@@ -25,7 +25,10 @@
       "@pages/*": ["src/app/pages/*"],
       "@assets/*": ["src/assets/*"],
       "@variables/*": ["src/styles/variables/*"],
-      "@constants/*": ["src/app/constants/*"]
+      "@constants/*": ["src/app/constants/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@types/*": ["src/app/models/*"],
+      "@environments/*": ["src/environments/*"]
     }
   },
   "angularCompilerOptions": {
