@@ -1,4 +1,11 @@
-<button mat-button class="nav-button">
+<a
+  mat-list-item
+  mat-button
+  class="nav-button"
+  [routerLink]="route"
+  routerLinkActive="mat-list-item-active"
+  [routerLinkActiveOptions]="{ exact: route === '/' }"
+>
   <mat-icon>{{ icon }}</mat-icon>
   <span>{{ label }}</span>
-</button>
+</a>

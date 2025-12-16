@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { LayoutService } from '@services/layout.service';
 import { filter } from 'rxjs/internal/operators/filter';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
@@ -45,13 +46,12 @@ export class AppComponent {
   drawerOpen = signal(false);
   navItems = [
     { label: 'Home', icon: 'home', route: '/' },
-    { label: 'Products', icon: 'inventory', route: '/products' },
+    { label: 'Shop', icon: 'inventory', route: '/shop' },
     { label: 'Contact', icon: 'contact_mail', route: '/contact' },
   ];
   sidenavMode = computed<'side' | 'over'>(() =>
     this.isLargeScreen() ? 'side' : 'over',
   );
-
   isLargeScreen = inject(LayoutService).isLargeScreen;
 
   constructor(private router: Router) {
@@ -60,7 +60,10 @@ export class AppComponent {
     });
 
     this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
+      .pipe(
+        filter((event) => event instanceof NavigationEnd),
+        takeUntilDestroyed(),
+      )
       .subscribe(() => this.onDrawerClose());
   }
 
