@@ -8,13 +8,25 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "DM_SERIF";
+  src: url("/fonts/DM_SERIF.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GOLOS_MEDIUM";
+  src: url("/fonts/GOLOS_MEDIUM.woff2") format("woff2");
+  font-display: swap;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
 }
 body {
-  font-family: Roboto, "Helvetica Neue", system-ui, sans-serif;
+  font-family: "GOLOS_MEDIUM", Roboto, "Helvetica Neue", system-ui, sans-serif;
 }
 *,
 *:before,
