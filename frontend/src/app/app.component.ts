@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  signal
+  signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
@@ -42,17 +42,36 @@ export class AppComponent {
   title = 'Peach Nutrition';
 
   readonly routingConfig = routingConfig;
+  private router = inject(Router);
 
   breakpointObserver = inject(BreakpointObserver);
   drawerOpen = signal(false);
 
-  constructor(private router: Router) {
+  private currentUrl = signal(this.router.url);
+
+  constructor() {
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
         takeUntilDestroyed(),
       )
-      .subscribe(() => this.onDrawerClose());
+      .subscribe(() => {
+        this.currentUrl.set(this.router.url);
+        this.onDrawerClose();
+      });
+  }
+
+  isRouteActive(route: string): boolean {
+    const exact = route === '/';
+    const url = this.currentUrl();
+    if (exact) return url === route;
+
+    // subset match: the route is active if the current URL starts with the route
+    return url === route || url.startsWith(route + '/');
+  }
+
+  closeDrawer() {
+    this.drawerOpen.set(false);
   }
 
   onDrawerClose() {
