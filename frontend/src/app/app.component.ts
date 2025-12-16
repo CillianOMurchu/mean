@@ -1,3 +1,4 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,6 +7,10 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import {
   NavigationEnd,
   Router,
@@ -13,15 +18,11 @@ import {
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
-import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { LayoutService } from '@services/layout.service';
 import { filter } from 'rxjs/internal/operators/filter';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FooterComponent } from './components/footer/footer.component';
+import { routingConfig } from './constants/routing-config.constant';
 
 @Component({
   selector: 'app-root',
@@ -42,13 +43,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class AppComponent {
   title = 'Peach Nutrition';
+
+  readonly routingConfig = routingConfig;
+
   breakpointObserver = inject(BreakpointObserver);
   drawerOpen = signal(false);
-  navItems = [
-    { label: 'Home', icon: 'home', route: '/' },
-    { label: 'Shop', icon: 'inventory', route: '/shop' },
-    { label: 'Contact', icon: 'contact_mail', route: '/contact' },
-  ];
+
   sidenavMode = computed<'side' | 'over'>(() =>
     this.isLargeScreen() ? 'side' : 'over',
   );
