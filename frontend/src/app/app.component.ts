@@ -1,8 +1,10 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  OnInit,
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -38,11 +40,12 @@ import { routingConfig } from './constants/routing-config.constant';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Peach Nutrition';
 
   readonly routingConfig = routingConfig;
   private router = inject(Router);
+  private document = inject(DOCUMENT);
 
   breakpointObserver = inject(BreakpointObserver);
   drawerOpen = signal(false);
@@ -59,6 +62,13 @@ export class AppComponent {
         this.currentUrl.set(this.router.url);
         this.onDrawerClose();
       });
+  }
+
+  ngOnInit() {
+    const link = this.document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Roboto&display=swap';
+    this.document.head.appendChild(link);
   }
 
   isRouteActive(route: string): boolean {

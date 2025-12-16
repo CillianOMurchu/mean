@@ -10,10 +10,33 @@
   .logo {
     padding: var(--small-gap);
     height: 100%;
+
+    img {
+      display: block;
+      transform: translateY(-500px);
+      // opacity: 0;
+      transition:
+        transform 420ms cubic-bezier(0.4, 0.0, 0.2, 1),
+        opacity 420ms ease-in-out;
+    }
+
+    &.enter img {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   button {
     display: grid;
     padding: 15px;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .logo img {
+      transform: none !important;
+      opacity: 1 !important;
+      transition: none !important;
+    }
   }
 }

@@ -1,5 +1,9 @@
 <div class="landing-page">
-  <img [src]="'/landing-page.png'" loading="lazy" />
+  <img
+    [src]="'/landing-page.png'"
+    (load)="onImageLoad()"
+    [class.loaded]="imageLoaded"
+  />
   <div class="overlay"></div>
   <h1 class="headline">
     <span class="word">FUEL</span>

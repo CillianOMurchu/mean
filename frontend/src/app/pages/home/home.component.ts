@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss',
   standalone: true,
 })
-export class HomeComponent {}
+export class HomeComponent {
+  imageLoaded = false as boolean;
+
+  onImageLoad() {
+    this.imageLoaded = true;
+  }
+}

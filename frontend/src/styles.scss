@@ -2,13 +2,19 @@
 @use "tailwindcss";
 @use "app/styles/variables.scss";
 
+@font-face {
+  font-family: "DM_SERIF_ITALIC";
+  src: url("/fonts/DM_SERIF_ITALIC.woff2") format("woff2");
+  font-display: swap;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
 }
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, "Helvetica Neue", system-ui, sans-serif;
 }
 *,
 *:before,
