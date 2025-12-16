@@ -2,10 +2,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
-  effect,
   inject,
-  signal,
+  signal
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +17,6 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { NavbarComponent } from '@components/navbar/navbar.component';
-import { LayoutService } from '@services/layout.service';
 import { filter } from 'rxjs/internal/operators/filter';
 import { FooterComponent } from './components/footer/footer.component';
 import { routingConfig } from './constants/routing-config.constant';
@@ -49,16 +46,7 @@ export class AppComponent {
   breakpointObserver = inject(BreakpointObserver);
   drawerOpen = signal(false);
 
-  sidenavMode = computed<'side' | 'over'>(() =>
-    this.isLargeScreen() ? 'side' : 'over',
-  );
-  isLargeScreen = inject(LayoutService).isLargeScreen;
-
   constructor(private router: Router) {
-    effect(() => {
-      this.drawerOpen.set(this.isLargeScreen());
-    });
-
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),

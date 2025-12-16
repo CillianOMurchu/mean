@@ -1,12 +1,15 @@
-<mat-grid-list cols="4" rowHeight="100px">
-  @for (product of products(); track product) {
+<mat-grid-list [cols]="cols()" rowHeight="100px">
+  @for (tile of tiles(); track tile) {
     <mat-grid-tile
-      [colspan]="2"
-      [rowspan]="2"
+      class="tile"
+      [colspan]="tile.colspan"
+      [rowspan]="tile.rowspan"
       [style.background]="
-        'url(' + product.images[0].src.replace('/src/assets/', '/assets/') + ')'
+        tile.backgroundColor + ' url(' +
+        tile.images[0].src.replace('/src/assets/', '/assets/') +
+        ') center/contain no-repeat'
       "
-      >{{ product.name }}</mat-grid-tile
     >
+    </mat-grid-tile>
   }
 </mat-grid-list>

@@ -1,12 +1,12 @@
 <div class="app-container">
   <app-navbar (toggleSidenav)="toggleSidenav()"></app-navbar>
 
-  <mat-sidenav-container>
+  <mat-sidenav-container class="h-full">
     <mat-sidenav
       #drawer
       (closed)="onDrawerClose()"
       [opened]="drawerOpen()"
-      [mode]="sidenavMode()"
+      mode="over"
       position="start"
     >
       <div class="p-4">
