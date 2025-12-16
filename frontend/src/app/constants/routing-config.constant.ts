@@ -11,6 +11,7 @@ const routingConfig = {
     { label: 'Contact', icon: 'contact_mail', route: ROUTES.contact },
   ],
   footerLinks: [
+    { icon: 'home', label: 'Home', route: '/' },
     { icon: 'local_dining', label: 'Food', route: '/products' },
   ],
 };
