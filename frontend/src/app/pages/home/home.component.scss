@@ -88,7 +88,6 @@
     }
   }
 
-  /* Respect user preference for reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .word {
       transform: none;
@@ -97,7 +96,6 @@
     }
   }
 
-  /* Responsive adjustments */
   @media (max-width: 600px) {
     .headline {
       left: 24px;

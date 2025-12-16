@@ -48,3 +48,9 @@ button {
   display: flex;
   flex-direction: column;
 }
+
+// material overrides
+:host,
+body {
+  --mat-motion-ease-in-out: cubic-bezier(0.25, 0.75, 0.5, 1.25);
+}
