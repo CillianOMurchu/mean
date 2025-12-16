@@ -1,38 +1,40 @@
 <div class="app-container">
-  <app-navbar (toggleSidenav)="toggleSidenav()"></app-navbar>
+  <div class="header">
+    <app-navbar (toggleSidenav)="toggleSidenav()"></app-navbar>
+  </div>
+  <div class="content">
+    <mat-sidenav-container class="h-full">
+      <mat-sidenav
+        #drawer
+        (closed)="onDrawerClose()"
+        [opened]="drawerOpen()"
+        mode="over"
+        position="start"
+      >
+        <div class="p-4">
+          <h3 class="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">
+            Menu opened is : {{ drawerOpen() }}
+          </h3>
+          <mat-nav-list>
+            @for (item of routingConfig.navItems; track item.route) {
+              <a
+                mat-list-item
+                [routerLink]="item.route"
+                routerLinkActive="mat-list-item-active"
+                [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+                >{{ item.label }}</a
+              >
+            }
+          </mat-nav-list>
+        </div>
+      </mat-sidenav>
 
-  <mat-sidenav-container class="h-full">
-    <mat-sidenav
-      #drawer
-      (closed)="onDrawerClose()"
-      [opened]="drawerOpen()"
-      mode="over"
-      position="start"
-    >
-      <div class="p-4">
-        <h3 class="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">
-          Menu opened is : {{ drawerOpen() }}
-        </h3>
-        <mat-nav-list>
-          @for (item of routingConfig.navItems; track item.route) {
-            <a
-              mat-list-item
-              [routerLink]="item.route"
-              routerLinkActive="mat-list-item-active"
-              [routerLinkActiveOptions]="{ exact: item.route === '/' }"
-              >{{ item.label }}</a
-            >
-          }
-        </mat-nav-list>
-      </div>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-
-  <app-footer></app-footer>
+      <mat-sidenav-content>
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  <div class="footer"><app-footer></app-footer></div>
 </div>

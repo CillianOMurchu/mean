@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.tile {
+  padding: 12px;
+  background-origin: content-box;
+  background-clip: padding-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+}

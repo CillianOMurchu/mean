@@ -15,10 +15,11 @@ import {
   seededSpansFromList,
 } from '@utils/seeded-rng';
 import { productPalette } from 'src/app/styles/_theme';
+import { ProductDetailComponent } from './../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-product-list',
-  imports: [MatGridListModule],
+  imports: [ProductDetailComponent, MatGridListModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

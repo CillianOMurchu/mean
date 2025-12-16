@@ -7,16 +7,16 @@
   } @else {
     <!-- @for (p of products(); track p) { -->
     <mat-grid-list [cols]="cols()" rowHeight="100px">
-      @for (tile of tiles(); track tile) {
-        <mat-grid-tile
+      @for (product of products(); track product) {
+        <!--   <mat-grid-tile
           class="tile"
           [colspan]="tile.colspan"
           [rowspan]="tile.rowspan"
           [style.background]="tile.backgroundStyle"
         >
-        </mat-grid-tile>
+        </mat-grid-tile> -->
+        <app-product-detail [product]="product"></app-product-detail>
       }
     </mat-grid-list>
-    <!-- } -->
   }
 }
