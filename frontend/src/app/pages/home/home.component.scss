@@ -1,117 +1,108 @@
 .landing-page {
   position: relative;
+  background-image: url("/landing-page.png");
+  background-size: cover;
+  background-position: center;
 
-  .hero-image {
-    height: 600px;
-    object-fit: cover;
-    position: relative;
-    display: block;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 300ms var(--easing-standard);
-
-    &.loaded {
-      opacity: 1;
-    }
-  }
+  height: 600px;
+  width: 100vw;
 
   .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 600px;
+    height: 100%;
     background: rgba(0, 0, 0, 0.3);
     transition: opacity 300ms var(--easing-standard);
   }
 
-  .placeholder {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    filter: blur(16px);
-    transform: scale(1.03);
-    transition:
-      opacity 360ms var(--easing-standard),
-      transform 360ms var(--easing-standard);
-    opacity: 1;
-    z-index: 0;
-    &.loaded {
-      opacity: 0;
-    }
-  }
+  //   //   .placeholder {
+  //   //     position: absolute;
+  //   //     inset: 0;
+  //   //     background-size: cover;
+  //   //     background-position: center;
+  //   //     filter: blur(16px);
+  //   //     transform: scale(1.03);
+  //   //     transition:
+  //   //       opacity 360ms var(--easing-standard),
+  //   //       transform 360ms var(--easing-standard);
+  //   //     opacity: 1;
+  //   //     z-index: 0;
+  //   //     &.loaded {
+  //   //       opacity: 0;
+  //   //     }
+  //   //   }
 
-  .landing-page.loaded .placeholder {
-    opacity: 0;
-    transform: scale(1);
-    pointer-events: none;
-  }
+  //   //   .landing-page.loaded .placeholder {
+  //   //     opacity: 0;
+  //   //     transform: scale(1);
+  //   //     pointer-events: none;
+  //   //   }
 
-  .headline {
-    position: absolute;
-    left: 24px;
-    bottom: 24px;
-    color: #fff;
-    font-size: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    align-items: flex-start;
-    text-align: left;
-    font-family: "DM_SERIF_ITALIC", serif;
-    font-weight: 900;
-    line-height: 1.1;
-  }
+  //   //   .headline {
+  //   //     position: absolute;
+  //   //     left: 24px;
+  //   //     bottom: 24px;
+  //   //     color: #fff;
+  //   //     font-size: 40px;
+  //   //     display: flex;
+  //   //     flex-direction: column;
+  //   //     gap: 0.1rem;
+  //   //     align-items: flex-start;
+  //   //     text-align: left;
+  //   //     font-family: "DM_SERIF_ITALIC", serif;
+  //   //     font-weight: 900;
+  //   //     line-height: 1.1;
+  //   //   }
 
-  .word {
-    display: inline-block;
-    transform: translateX(-24px);
-    opacity: 0;
-    animation: slideIn 600ms var(--easing-standard) forwards;
-  }
+  //   //   .word {
+  //   //     display: inline-block;
+  //   //     transform: translateX(-24px);
+  //   //     opacity: 0;
+  //   //     animation: slideIn 600ms var(--easing-standard) forwards;
+  //   //   }
 
-  .word:nth-child(1) {
-    animation-delay: 0ms;
-  }
-  .word:nth-child(2) {
-    animation-delay: 240ms;
-  }
-  .word:nth-child(3) {
-    animation-delay: 480ms;
-  }
+  //   //   .word:nth-child(1) {
+  //   //     animation-delay: 0ms;
+  //   //   }
+  //   //   .word:nth-child(2) {
+  //   //     animation-delay: 240ms;
+  //   //   }
+  //   //   .word:nth-child(3) {
+  //   //     animation-delay: 480ms;
+  //   //   }
 
-  @keyframes slideIn {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
+  //   //   @keyframes slideIn {
+  //   //     to {
+  //   //       transform: translateX(0);
+  //   //       opacity: 1;
+  //   //     }
+  //   //   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .word {
-      transform: none;
-      opacity: 1;
-      animation: none;
-    }
-  }
+  //   //   @media (prefers-reduced-motion: reduce) {
+  //   //     .word {
+  //   //       transform: none;
+  //   //       opacity: 1;
+  //   //       animation: none;
+  //   //     }
+  //   //   }
 
-  @media (max-width: 600px) {
-    .headline {
-      left: 24px;
-      bottom: 24px;
-      font-size: 2.5rem;
-    }
-    .word {
-      animation-duration: 450ms;
-    }
-  }
+  //   //   @media (max-width: 600px) {
+  //   //     .headline {
+  //   //       left: 24px;
+  //   //       bottom: 24px;
+  //   //       font-size: 2.5rem;
+  //   //     }
+  //   //     .word {
+  //   //       animation-duration: 450ms;
+  //   //     }
+  //   //   }
+  //   // }
+
+  //   // .trust-signal-brands {
+  //   //   display: grid;
+  //   //   grid-template-columns: repeat(3, 1fr);
+  //   //   gap: 12px;
+  //   //   padding: 12px;
 }
-
-.trust-signal-brands {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  padding: 12px;
-}
-
