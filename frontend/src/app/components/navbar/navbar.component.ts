@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   EventEmitter,
+  Input,
   Output,
   signal
 } from '@angular/core';
@@ -18,6 +19,7 @@ import { RouterLink } from '@angular/router';
 })  
 export class NavbarComponent implements AfterViewInit {
   @Output() toggleSidenav = new EventEmitter<void>();
+  @Input() isOpen = false;
 
   // Controls the intro animation for the logo
   logoVisible = signal(false);

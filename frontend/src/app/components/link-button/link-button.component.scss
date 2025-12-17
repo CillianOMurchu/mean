@@ -14,8 +14,12 @@
   width: 100%;
 }
 
-.nav-button .mat-icon {
-  margin-bottom: 2px;
-  margin-right: 0 !important;
-  margin-left: 0 !important;
+
+
+.nav-button {
+  mat-icon,
+  mat-button,
+  a {
+    text-align: center;
+  }
 }

@@ -1,7 +1,7 @@
 .landing-page {
   position: relative;
 
-  img {
+  .hero-image {
     height: 600px;
     object-fit: cover;
     position: relative;
@@ -107,3 +107,57 @@
     }
   }
 }
+
+// .trusted-by-section {
+//   /* Subtle dark gradient background */
+//   background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+// }
+
+// .trust-signal-brands {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 3rem; /* Increased gap for better spacing */
+//   padding: 0 1rem;
+// }
+
+// .trust-signal-brands .logo-link {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 0.5rem;
+// }
+
+// .trust-signal-brands img {
+//   width: auto;
+//   height: 40px; /* Base height for all logos */
+//   max-width: 150px; /* Ensure logos don't get too large on desktop */
+//   object-fit: contain;
+
+//   /* Subtle gray/silver filter for a classy, muted look */
+//   filter: grayscale(100%) opacity(70%);
+
+//   /* Smooth transition for the hover effect */
+//   transition:
+//     filter 0.3s ease-in-out,
+//     box-shadow 0.3s ease-in-out,
+//     transform 0.2s;
+// }
+
+// .trust-signal-brands img:hover {
+//   /* Restore full color and opacity */
+//   filter: grayscale(0%) opacity(100%);
+
+//   /* Subtle lift and glow effect */
+//   transform: translateY(-2px);
+//   box-shadow: 0 0 20px rgba(71, 195, 255, 0.5); /* Blue glow */
+//   cursor: pointer;
+// }
+
+// /* Responsive adjustment for mobile (stacking logos) */
+// @media (max-width: 768px) {
+//   .trust-signal-brands {
+//     flex-direction: column;
+//     gap: 1.5rem;
+//   }
+// }

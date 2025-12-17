@@ -52,5 +52,11 @@ button {
 // material overrides
 :host,
 body {
-  --mat-motion-ease-in-out: cubic-bezier(0.25, 0.75, 0.5, 1.25);
+  --mat-motion-ease-in-out: cubic-bezier(0.25, 0.75, 0.5, 1.25) !important;
+}
+
+.mdc-button__label {
+  align-items: center;
+  display: grid;
+  justify-items: center;
 }

@@ -7,9 +7,10 @@
 
   <button
     matMiniFab
-    aria-label="Example icon button with a menu icon"
+    [attr.aria-label]="isOpen ? 'Close menu' : 'Open menu'"
+    [class.open]="isOpen"
     (click)="toggleSidenav.emit()"
   >
-    <mat-icon>menu</mat-icon>
+    <mat-icon>{{ isOpen ? 'close' : 'menu' }}</mat-icon>
   </button>
 </mat-toolbar>

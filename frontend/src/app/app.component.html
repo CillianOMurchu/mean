@@ -1,6 +1,6 @@
 <div class="app-container">
   <div class="header">
-    <app-navbar (toggleSidenav)="toggleSidenav()"></app-navbar>
+    <app-navbar (toggleSidenav)="toggleSidenav()" [isOpen]="drawerOpen()"></app-navbar>
   </div>
   <div class="content">
     <mat-sidenav-container class="h-full">
