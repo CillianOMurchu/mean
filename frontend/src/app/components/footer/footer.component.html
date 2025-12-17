@@ -1,10 +1,10 @@
 <footer>
   <mat-toolbar class="footer-nav">
-    @for (link of routingConfig.footerLinks; track $index) {
+    @for (item of routingConfig.footerItems; track $index) {
       <app-link-button
-        icon="{{ link.icon }}"
-        label="{{ link.label }}"
-        route="{{ link.route }}"
+        icon="{{ item.icon }}"
+        label="{{ item.label }}"
+        route="{{ item.route }}"
       ></app-link-button>
     }
   </mat-toolbar>

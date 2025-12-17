@@ -10,7 +10,7 @@ const routingConfig = {
     { label: 'Products', icon: 'storefront', route: ROUTES.products },
     { label: 'Contact', icon: 'contact_mail', route: ROUTES.contact },
   ],
-  footerLinks: [
+  footerItems: [
     { icon: 'home', label: 'Home', route: '/' },
     { icon: 'local_dining', label: 'Food', route: '/products' },
   ],

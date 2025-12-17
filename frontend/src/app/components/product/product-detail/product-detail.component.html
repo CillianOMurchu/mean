@@ -1,4 +1,3 @@
-<!-- if no product  -->
 @if (!product) {
   <p>No product data available</p>
 } @else {
@@ -7,26 +6,4 @@
     [src]="imageUrl"
     [alt]="'Photo of ' + (product.name || '')"
   />
-  <!-- <mat-card class="product-detail" appearance="outlined">
-    @if (imageUrl) {
-      <img
-        mat-card-image
-        [src]="imageUrl"
-        [alt]="'Photo of ' + (product.name || '')"
-      />
-    } @else {
-      <ng-template>
-        <div class="no-image">No image</div>
-      </ng-template>
-    }
-    <mat-card-content>
-      <p>
-        {{ product.description }}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button matButton>LIKE</button>
-      <button matButton>SHARE</button>
-    </mat-card-actions>
-  </mat-card> -->
 }

@@ -1,11 +1,12 @@
 <mat-toolbar class="navbar" color="primary">
-  <div class="logo" [class.enter]="logoVisible()">
+  <div class="logo">
     <a routerLink="/">
       <img src="/logos/logo-peach-nutrition.png" alt="Peach Nutrition logo" />
     </a>
   </div>
   <app-hamburger-menu
-    (click  toggleSidenav)="toggleSidenav.emit()"
+    (click
+    (toggleSidenav)="toggleSidenav.emit()"
     [isOpen]="isOpen"
   ></app-hamburger-menu>
 </mat-toolbar>

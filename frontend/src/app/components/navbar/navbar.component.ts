@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  signal,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
@@ -23,15 +16,7 @@ import { HamburgerMenuComponent } from '@components/hamburger-menu/hamburger-men
   styleUrl: './navbar.component.scss',
   standalone: true,
 })
-export class NavbarComponent implements AfterViewInit {
+export class NavbarComponent {
   @Output() toggleSidenav = new EventEmitter<void>();
   @Input() isOpen = false;
-
-  // Controls the intro animation for the logo
-  logoVisible = signal(false);
-
-  ngAfterViewInit(): void {
-    // Defer to the next frame so the initial styles apply
-    requestAnimationFrame(() => this.logoVisible.set(true));
-  }
 }

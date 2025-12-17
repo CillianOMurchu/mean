@@ -1,8 +1,6 @@
 export interface ProductImage {
   src: string;
   alt: string;
-  position: number;
-  productUrl: string;
 }
 
 export interface ProductType {
@@ -15,5 +13,4 @@ export interface ProductType {
   images: ProductImage[];
   createdAt: string;
   updatedAt: string;
-  backgroundColor?: string;
 }

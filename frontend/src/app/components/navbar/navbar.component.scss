@@ -1,52 +1,15 @@
 .navbar {
   gap: 12px;
-  transition: transform 0.3s ease-in-out;
   display: flex;
   align-items: center;
-  overflow: hidden;
   justify-content: space-between;
   height: fit-content;
 
   .logo {
     padding: var(--small-gap);
-    height: 100%;
 
     img {
-      display: block;
-      transform: translateY(-50px);
-      opacity: 0;
-      transition:
-        transform 420ms var(--easing-standard),
-        opacity 420ms var(--easing-standard);
       height: 70px;
-    }
-
-    &.enter img {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  button {
-    display: grid;
-    padding: 15px;
-    transition: transform 200ms var(--easing-standard), background-color 200ms var(--easing-standard);
-
-    &.open mat-icon {
-      transform: rotate(90deg);
-      background-color: rgba(255,255,255,0.06);
-    }
-
-    mat-icon {
-      transition: transform 200ms var(--easing-standard);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .logo img {
-      transform: none !important;
-      opacity: 1 !important;
-      transition: none !important;
     }
   }
 }
