@@ -1,21 +1,14 @@
-<!--  -->
 @if (isLoading()) {
   <p>Loading…</p>
 } @else {
   @if (error()) {
     <p>Error loading products</p>
   } @else {
-    <!-- @for (p of products(); track p) { -->
-    <mat-grid-list [cols]="cols()" rowHeight="100px">
-      @for (product of products(); track product) {
-        <!--   <mat-grid-tile
-          class="tile"
-          [colspan]="tile.colspan"
-          [rowspan]="tile.rowspan"
-          [style.background]="tile.backgroundStyle"
-        >
-        </mat-grid-tile> -->
-        <app-product-detail [product]="product"></app-product-detail>
+    <mat-grid-list cols="2" rowHeight="2:1">
+      @for (product of products(); track $index) {
+        <mat-grid-tile>
+          <app-product-detail [product]="product"></app-product-detail>
+        </mat-grid-tile>
       }
     </mat-grid-list>
   }

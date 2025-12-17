@@ -27,11 +27,3 @@
   </div>
 </div>
 
-<div class="trust-signal-brands">
-  @for (link of brandsConfig; track $index) {
-    <app-link-button
-      route="{{ link.route }}"
-      image="{{ link.src }}"
-    ></app-link-button>
-  }
-</div>
