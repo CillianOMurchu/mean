@@ -1,16 +1,11 @@
 <mat-toolbar class="navbar" color="primary">
   <div class="logo" [class.enter]="logoVisible()">
     <a routerLink="/">
-      <img src="/peach-nutrition-logo.png" alt="Peach Nutrition logo" />
+      <img src="/logos/logo-peach-nutrition.png" alt="Peach Nutrition logo" />
     </a>
   </div>
-
-  <button
-    matMiniFab
-    [attr.aria-label]="isOpen ? 'Close menu' : 'Open menu'"
-    [class.open]="isOpen"
-    (click)="toggleSidenav.emit()"
-  >
-    <mat-icon>{{ isOpen ? 'close' : 'menu' }}</mat-icon>
-  </button>
+  <app-hamburger-menu
+    (click  toggleSidenav)="toggleSidenav.emit()"
+    [isOpen]="isOpen"
+  ></app-hamburger-menu>
 </mat-toolbar>

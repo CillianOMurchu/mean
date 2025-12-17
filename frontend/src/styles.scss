@@ -15,8 +15,8 @@
 }
 
 @font-face {
-  font-family: "GOLOS_MEDIUM";
-  src: url("/fonts/GOLOS_MEDIUM.woff2") format("woff2");
+  font-family: "GOLOS";
+  src: url("/fonts/GOLOS.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -26,7 +26,7 @@ body {
   margin: 0;
 }
 body {
-  font-family: "GOLOS_MEDIUM", Roboto, "Helvetica Neue", system-ui, sans-serif;
+  font-family: var(--golos-font-family);
 }
 *,
 *:before,
@@ -57,17 +57,13 @@ svg {
 }
 
 // material overrides
-:host,
-body {
-  --mat-motion-ease-in-out: cubic-bezier(0.25, 0.75, 0.5, 1.25) !important;
-}
-
 .mdc-button__label {
   align-items: center;
   display: grid;
   justify-items: center;
 }
 
+// global animations
 @keyframes slideFadeIn {
   0% {
     opacity: 0;

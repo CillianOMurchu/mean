@@ -23,9 +23,7 @@ export class LinkButtonComponent {
    */
   get routerPath(): string {
     if (!this.route) return '';
-    // strip hash if present
     const withoutHash = this.route.split('#')[0];
-    // split query
     const parts = withoutHash.split('?');
     return parts[0] || '';
   }

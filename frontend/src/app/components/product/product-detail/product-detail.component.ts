@@ -11,6 +11,12 @@ import { ProductType } from '@models/product.type';
 export class ProductDetailComponent implements AfterViewInit {
   @Input() product: ProductType | null = null;
 
+  // Safely compute the first image URL (avoid template index errors)
+  get imageUrl(): string | null {
+    if (!this.product?.images?.length) return null;
+    return this.product.images[0].src || null;
+  }
+
   ngAfterViewInit() {
     console.log('product in detail is', this.product);
   }

@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductType } from '@models/product.type';
 import { ApiService } from '@services/api.service';

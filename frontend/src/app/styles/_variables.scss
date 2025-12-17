@@ -1,10 +1,10 @@
 :root {
-  --header-height: 75px;
-  --footer-height: 75px;
-
   --small-gap: 8px;
   --medium-gap: 16px;
   --large-gap: 24px;
 
   --easing-standard: cubic-bezier(0.25, 0.75, 0.5, 1.25);
+
+  --golos-font-family:
+    "GOLOS", Roboto, "Helvetica Neue", system-ui, sans-serif;
 }
