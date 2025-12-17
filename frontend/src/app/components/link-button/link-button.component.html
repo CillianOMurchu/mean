@@ -1,0 +1,19 @@
+<a
+  mat-list-item
+  mat-button
+  class="nav-button"
+  [routerLink]="routerPath"
+  [queryParams]="routerQueryParams"
+  routerLinkActive="mat-list-item-active"
+  [routerLinkActiveOptions]="{ exact: routerPath === '/' }"
+>
+  <ng-container *ngIf="image; else showIcon">
+    <img [src]="image" [alt]="label" loading="lazy" />
+  </ng-container>
+
+  <ng-template #showIcon>
+    <mat-icon>{{ icon }}</mat-icon>
+  </ng-template>
+
+  <span *ngIf="label">{{ label }}</span>
+</a>

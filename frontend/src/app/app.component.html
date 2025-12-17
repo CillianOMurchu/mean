@@ -1,0 +1,30 @@
+<div class="app-container">
+  <div class="header">
+    <app-navbar
+      (toggleSidenav)="toggleSidenav()"
+      [isOpen]="drawerOpen()"
+    ></app-navbar>
+  </div>
+  <div class="content">
+    <mat-sidenav-container class="h-full">
+      <mat-sidenav
+        #drawer
+        (closed)="closeDrawer()"
+        [opened]="drawerOpen()"
+        mode="over"
+        position="start"
+      > 
+        <div class="p-4">
+          <app-navigation-panel (click)="closeDrawer()" />
+        </div>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  <div class="footer"><app-footer></app-footer></div>
+</div>

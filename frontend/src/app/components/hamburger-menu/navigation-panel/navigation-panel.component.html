@@ -1,0 +1,14 @@
+<mat-nav-list class="navlist">
+  @for (item of routingConfig.navItems; track item.route) {
+    <a
+      mat-list-item
+      [routerLink]="item.route"
+      routerLinkActive="mat-list-item-active"
+      #rla="routerLinkActive"
+      [activated]="rla.isActive"
+      [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+      (click)="click.emit()"
+      >{{ item.label }}</a
+    >
+  }
+</mat-nav-list>

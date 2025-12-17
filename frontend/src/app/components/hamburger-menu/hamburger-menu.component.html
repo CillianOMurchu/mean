@@ -1,0 +1,8 @@
+<button
+  matMiniFab
+  [attr.aria-label]="isOpen ? 'Close menu' : 'Open menu'"
+  [class.open]="isOpen"
+  (click)="toggleSidenav.emit()"
+>
+  <mat-icon>{{ isOpen ? "close" : "menu" }}</mat-icon>
+</button>

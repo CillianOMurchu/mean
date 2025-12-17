@@ -1,0 +1,15 @@
+  @if (isLoading()) {
+    <p>Loading…</p>
+  } @else {
+    @if (error()) {
+      <p>Error loading products</p>
+    } @else {
+      <mat-grid-list cols="1" gutterSize="16px">
+        @for (product of products(); track $index) {
+          <mat-grid-tile>
+            <app-product-detail [product]="product"></app-product-detail>
+          </mat-grid-tile>
+        }
+      </mat-grid-list>
+    }
+  }

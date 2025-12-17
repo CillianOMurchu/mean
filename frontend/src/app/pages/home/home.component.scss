@@ -1,0 +1,67 @@
+.landing-page {
+  position: relative;
+  background-image: url("/landing-page.png");
+  background-size: cover;
+  background-position: center;
+
+  height: 600px;
+  width: 100vw;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 300ms var(--easing-standard);
+  }
+
+  .headline {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    color: #fff;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: flex-start;
+    text-align: left;
+    font-family: "DM_SERIF_ITALIC", serif;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .word {
+    display: inline-block;
+    transform: translateX(-55px);
+    animation: slideIn 600ms var(--easing-standard) forwards;
+    opacity: 0;
+  }
+
+  .word:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  .word:nth-child(2) {
+    animation-delay: 240ms;
+  }
+  .word:nth-child(3) {
+    animation-delay: 480ms;
+  }
+
+  @keyframes slideIn {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .word {
+      transform: none;
+      opacity: 1;
+      animation: none;
+    }
+  }
+}

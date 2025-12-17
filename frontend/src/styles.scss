@@ -1,0 +1,77 @@
+@use "@angular/material/prebuilt-themes/rose-red.css";
+@use "tailwindcss";
+@use "app/styles/variables.scss";
+
+
+@font-face {
+  font-family: "DM_SERIF_ITALIC";
+  src: url("/fonts/DM_SERIF_ITALIC.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM_SERIF";
+  src: url("/fonts/DM_SERIF.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GOLOS";
+  src: url("/fonts/GOLOS.woff2") format("woff2");
+  font-display: swap;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: var(--golos-font-family);
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+button,
+a,
+svg {
+  cursor: pointer;
+}
+
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// material overrides
+.mdc-button__label {
+  align-items: center;
+  display: grid;
+  justify-items: center;
+}
+
+// global animations
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

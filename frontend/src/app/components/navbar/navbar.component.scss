@@ -1,0 +1,15 @@
+.navbar {
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: fit-content;
+
+  .logo {
+    padding: 8px;
+
+    img {
+      height: 70px;
+    }
+  }
+}

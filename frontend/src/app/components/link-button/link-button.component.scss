@@ -1,0 +1,23 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.nav-button {
+  border-radius: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  line-height: 1.2;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-button {
+  mat-icon,
+  mat-button,
+  a {
+    text-align: center;
+  }
+}
