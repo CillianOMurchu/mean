@@ -9,13 +9,13 @@
     <mat-sidenav-container class="h-full">
       <mat-sidenav
         #drawer
-        (closed)="onDrawerClose()"
+        (closed)="closeDrawer()"
         [opened]="drawerOpen()"
         mode="over"
         position="start"
       > 
         <div class="p-4">
-          <app-navigation-panel (click)="onDrawerClose()" />
+          <app-navigation-panel (click)="closeDrawer()" />
         </div>
       </mat-sidenav>
 

@@ -9,7 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavigationPanelComponent } from '@components/hamburger-menu/navigation-panel/navigation-panel.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
-import { filter } from 'rxjs/internal/operators/filter';
+import { filter } from 'rxjs';
 import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
@@ -18,7 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
   styleUrl: './app.component.scss',
   imports: [
     RouterOutlet,
-    // RouterModule,
     NavbarComponent,
     FooterComponent,
     MatSidenavModule,
@@ -32,17 +31,19 @@ export class AppComponent {
   router = inject(Router);
 
   title = 'Peach Nutrition';
+
   drawerOpen = signal(false);
 
   constructor() {
+    // Close the side drawer on any navigation end
     this.router.events
       .pipe(filter((e) => e instanceof NavigationEnd))
       .subscribe(() => {
-        if (this.drawerOpen()) this.onDrawerClose();
+        if (this.drawerOpen()) this.closeDrawer();
       });
   }
 
-  onDrawerClose() {
+  closeDrawer() {
     this.drawerOpen.set(false);
   }
 
