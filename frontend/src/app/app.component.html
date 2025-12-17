@@ -1,6 +1,9 @@
 <div class="app-container">
   <div class="header">
-    <app-navbar (toggleSidenav)="toggleSidenav()" [isOpen]="drawerOpen()"></app-navbar>
+    <app-navbar
+      (toggleSidenav)="toggleSidenav()"
+      [isOpen]="drawerOpen()"
+    ></app-navbar>
   </div>
   <div class="content">
     <mat-sidenav-container class="h-full">
@@ -12,20 +15,7 @@
         position="start"
       >
         <div class="p-4">
-          <mat-nav-list class="navlist">
-            @for (item of routingConfig.navItems; track item.route) {
-              <a
-                mat-list-item
-                [routerLink]="item.route"
-                routerLinkActive="mat-list-item-active"
-                #rla="routerLinkActive"
-                [activated]="rla.isActive"
-                [routerLinkActiveOptions]="{ exact: item.route === '/' }"
-                (click)="drawer.close()"
-                >{{ item.label }}</a
-              >
-            }
-          </mat-nav-list>
+          <app-navigation-panel (click)="closeDrawer()" />
         </div>
       </mat-sidenav>
 

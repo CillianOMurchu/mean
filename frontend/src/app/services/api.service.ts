@@ -17,11 +17,12 @@ export class ApiService {
     },
   });
 
-  // Convenience computed signals derived from the resource
   public readonly products: Signal<ProductType[]> = computed(() =>
     this.productsResource.hasValue() ? this.productsResource.value() : [],
   );
+
   public readonly isLoading = computed(() => this.productsResource.isLoading());
+
   public readonly error = computed(() =>
     this.productsResource.error ? this.productsResource.error() : null,
   );

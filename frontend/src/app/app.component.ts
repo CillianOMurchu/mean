@@ -9,19 +9,17 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {
   NavigationEnd,
   Router,
-  RouterLink,
   RouterModule,
   RouterOutlet,
 } from '@angular/router';
+import { NavigationPanelComponent } from '@components/hamburger-menu/navigation-panel/navigation-panel.component';
 import { NavbarComponent } from '@components/navbar/navbar.component';
 import { filter } from 'rxjs/internal/operators/filter';
 import { FooterComponent } from './components/footer/footer.component';
-import { routingConfig } from './constants/routing-config.constant';
 
 @Component({
   selector: 'app-root',
@@ -30,12 +28,11 @@ import { routingConfig } from './constants/routing-config.constant';
   imports: [
     RouterOutlet,
     RouterModule,
-    RouterLink,
     NavbarComponent,
     FooterComponent,
     MatSidenavModule,
     MatIconModule,
-    MatListModule,
+    NavigationPanelComponent,
   ],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -43,7 +40,6 @@ import { routingConfig } from './constants/routing-config.constant';
 export class AppComponent implements OnInit {
   title = 'Peach Nutrition';
 
-  readonly routingConfig = routingConfig;
   private router = inject(Router);
   private document = inject(DOCUMENT);
 

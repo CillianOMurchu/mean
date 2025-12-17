@@ -9,10 +9,4 @@ import { RouterLink } from '@angular/router';
   styleUrl: './home.component.scss',
   standalone: true,
 })
-export class HomeComponent {
-  imageLoaded = false as boolean;
-
-  onImageLoad() {
-    this.imageLoaded = true;
-  }
-}
+export class HomeComponent {}

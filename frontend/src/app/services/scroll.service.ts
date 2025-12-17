@@ -1,7 +1,7 @@
 import { Injectable, Signal } from '@angular/core';
-import { fromEvent } from 'rxjs';
-import { throttleTime, map, pairwise } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { fromEvent } from 'rxjs';
+import { map, pairwise, throttleTime } from 'rxjs/operators';
 
 export type ScrollDirection = 'up' | 'down' | 'none';
 
@@ -24,7 +24,6 @@ export class ScrollService {
       })
     ),
     { 
-      // Set the initial value for the signal
       initialValue: 'none' 
     }
   );
