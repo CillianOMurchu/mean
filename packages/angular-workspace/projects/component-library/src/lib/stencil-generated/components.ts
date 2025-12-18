@@ -1,37 +1,38 @@
 /* tslint:disable */
 /* auto-generated angular directive proxies */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Output, NgZone } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  NgZone,
+} from '@angular/core';
 
 import { ProxyCmp } from './angular-component-lib/utils';
 
-import { Components } from 'stencil-library';
-
-
+import { defineCustomElement as definePeachStatusBadge } from 'stencil-library/components/peach-status-badge.js';
+import { Components } from '../../../../../../stencil-library/dist/types/components';
 @ProxyCmp({
-  inputs: ['category', 'images', 'isSale', 'price', 'productTitle']
+  defineCustomElementFn: definePeachStatusBadge,
+  inputs: ['label', 'status'],
 })
 @Component({
-  selector: 'peach-product-card',
+  selector: 'peach-status-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['category', 'images', 'isSale', 'price', 'productTitle'],
-  outputs: ['addToCart'],
-  standalone: false
+  inputs: ['label', 'status'],
 })
-export class PeachProductCard {
-  protected el: HTMLPeachProductCardElement;
-  @Output() addToCart = new EventEmitter<CustomEvent<any>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+export class PeachStatusBadge {
+  protected el: HTMLPeachStatusBadgeElement;
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
 }
 
-
-export declare interface PeachProductCard extends Components.PeachProductCard {
-
-  addToCart: EventEmitter<CustomEvent<any>>;
-}
-
-
+export declare interface PeachStatusBadge extends Components.PeachStatusBadge {}
