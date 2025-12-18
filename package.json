@@ -5,14 +5,17 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@types/node": "^25.0.3",
-    "lerna": "^9.0.3",
-    "typescript": "^5.9.3",
-    "rxjs": "~7.8.0"
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "husky": "^8.0.0",
+    "lerna": "^8.0.0",
+    "typescript": "^5.4.0"
   },
   "scripts": {
-    "prepare": "npx husky install .husky",
-    "start-frontend": "npm run start --workspace=frontend",
-    "start-server": "npm run start --workspace=server"
+    "prepare": "husky install",
+  "start-frontend": "npm run start --workspace=frontend",
+    "start-server": "npm run start --workspace=server",
+    "start-stencil": "npm start -w stencil",
+    "reset": "rm -rf node_modules package-lock.json packages/*/node_modules packages/*/package-lock.json && npm install"
   }
 }

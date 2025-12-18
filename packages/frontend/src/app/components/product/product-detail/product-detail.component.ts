@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { ProductType } from '@models/product.type';
+import { ProductType } from '@models/product-type';
 
 @Component({
   selector: 'app-product-detail',

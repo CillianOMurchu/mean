@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, resource, Signal } from '@angular/core';
-import { ProductType } from '@models/product.type';
+import { environment } from '@environments/environment';
+import { ProductType } from '@models/product-type';
 import { firstValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class ApiService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiBaseUrl}/products`;
 
-  public readonly productsResource = resource({
+  public readonly productsResource = resource<ProductType[], undefined>({
     loader: async () => {
       return firstValueFrom(this.http.get<ProductType[]>(this.apiUrl));
     },

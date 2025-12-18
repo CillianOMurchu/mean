@@ -1,9 +1,9 @@
-export interface ProductImage {
+export type ProductImage = {
   src: string;
   alt: string;
 }
 
-export interface ProductType {
+export type ProductType = {
   _id: string;
   name: string;
   description: string;
@@ -13,4 +13,4 @@ export interface ProductType {
   images: ProductImage[];
   createdAt: string;
   updatedAt: string;
-}
+};
