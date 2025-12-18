@@ -1,10 +1,10 @@
 @if (!product) {
   <p>No product data available</p>
 } @else {
-  <div class="card"><peach-product-card
-    [images]="product.images"
-    [title]="product.name"
-    [price]="product.price"
-    ></peach-product-card></div>
+  <div class="card">
+    <peach-product-card> </peach-product-card>
+
+    <peach-button></peach-button>
+  </div>
   Card above
 }

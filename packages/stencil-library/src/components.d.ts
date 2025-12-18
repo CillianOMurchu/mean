@@ -6,23 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-          * @default ''
-         */
-        "first": string;
-        /**
-          * The last name
-          * @default ''
-         */
-        "last": string;
-        /**
-          * The middle name
-          * @default ''
-         */
-        "middle": string;
-    }
     interface PeachProductCard {
         /**
           * The category badge text
@@ -56,12 +39,6 @@ export interface PeachProductCardCustomEvent<T> extends CustomEvent<T> {
     target: HTMLPeachProductCardElement;
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLPeachProductCardElementEventMap {
         "addToCart": any;
     }
@@ -80,28 +57,10 @@ declare global {
         new (): HTMLPeachProductCardElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "peach-product-card": HTMLPeachProductCardElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-          * @default ''
-         */
-        "first"?: string;
-        /**
-          * The last name
-          * @default ''
-         */
-        "last"?: string;
-        /**
-          * The middle name
-          * @default ''
-         */
-        "middle"?: string;
-    }
     interface PeachProductCard {
         /**
           * The category badge text
@@ -131,7 +90,6 @@ declare namespace LocalJSX {
         "productTitle"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "peach-product-card": PeachProductCard;
     }
 }
@@ -139,7 +97,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "peach-product-card": LocalJSX.PeachProductCard & JSXBase.HTMLAttributes<HTMLPeachProductCardElement>;
         }
     }
