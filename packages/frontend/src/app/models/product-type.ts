@@ -1,6 +1,7 @@
 export type ProductImage = {
   src: string;
   alt: string;
+  _id: string;
 }
 
 export type ProductType = {
@@ -13,4 +14,5 @@ export type ProductType = {
   images: ProductImage[];
   createdAt: string;
   updatedAt: string;
+  discountPercentage: number;
 };

@@ -1,9 +1,6 @@
 @if (!product) {
   <p>No product data available</p>
 } @else {
-  <img
-    mat-card-image
-    [src]="imageUrl"
-    [alt]="'Photo of ' + (product.name || '')"
-  />
+  <div class="card"><peach-product-card></peach-product-card></div>
+  Card above
 }

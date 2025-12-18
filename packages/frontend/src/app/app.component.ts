@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  CUSTOM_ELEMENTS_SCHEMA,
   inject,
   signal,
 } from '@angular/core';
@@ -26,6 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], 
 })
 export class AppComponent {
   router = inject(Router);

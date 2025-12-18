@@ -15,7 +15,8 @@
     "prepare": "husky install",
     "start-frontend": "npm run start --workspace=frontend",
     "start-server": "npm run start --workspace=server",
-    "start-stencil": "npm start -w stencil",
+    "start-stencil": "npm start -w @peach/stencil-library",
+    "build-stencil": "npm run build -w @peach/stencil-library",
     "reset": "rm -rf node_modules package-lock.json packages/*/node_modules packages/*/package-lock.json && npm install"
   }
 }

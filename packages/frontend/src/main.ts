@@ -1,9 +1,11 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { defineCustomElements } from 'stencil/loader';
 import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
 
-defineCustomElements()
+import { defineCustomElements } from '@peach/stencil-library/loader';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+defineCustomElements();
+
+bootstrapApplication(AppComponent, appConfig).catch((err) =>
+  console.error(err),
+);
