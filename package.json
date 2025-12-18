@@ -1,11 +1,18 @@
 {
-  "name": "root",
+  "name": "peach-nutrition",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "lerna": "^9.0.3"
+    "@types/node": "^25.0.3",
+    "lerna": "^9.0.3",
+    "typescript": "^5.9.3",
+    "rxjs": "~7.8.0"
+  },
+  "scripts": {
+    "prepare": "npx husky install .husky",
+    "start-frontend": "npm run start --workspace=frontend",
+    "start-server": "npm run start --workspace=server"
   }
 }
