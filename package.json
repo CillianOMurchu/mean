@@ -13,7 +13,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-  "start-frontend": "npm run start --workspace=frontend",
+    "start-frontend": "npm run start --workspace=frontend",
     "start-server": "npm run start --workspace=server",
     "start-stencil": "npm start -w stencil",
     "reset": "rm -rf node_modules package-lock.json packages/*/node_modules packages/*/package-lock.json && npm install"
