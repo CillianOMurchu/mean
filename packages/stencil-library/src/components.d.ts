@@ -24,7 +24,36 @@ export namespace Components {
         "middle": string;
     }
     interface PeachProductCard {
+        /**
+          * The category badge text
+          * @default 'Supplement'
+         */
+        "category": string;
+        /**
+          * Array of product image URLs
+          * @default []
+         */
+        "images": string[];
+        /**
+          * Indicates if the product is on sale
+          * @default false
+         */
+        "isSale": boolean;
+        /**
+          * The price display
+          * @default '$0.00'
+         */
+        "price": string;
+        /**
+          * The product title
+          * @default 'Premium Peach Nutrition'
+         */
+        "productTitle": string;
     }
+}
+export interface PeachProductCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPeachProductCardElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -33,7 +62,18 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLPeachProductCardElementEventMap {
+        "addToCart": any;
+    }
     interface HTMLPeachProductCardElement extends Components.PeachProductCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPeachProductCardElementEventMap>(type: K, listener: (this: HTMLPeachProductCardElement, ev: PeachProductCardCustomEvent<HTMLPeachProductCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPeachProductCardElementEventMap>(type: K, listener: (this: HTMLPeachProductCardElement, ev: PeachProductCardCustomEvent<HTMLPeachProductCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLPeachProductCardElement: {
         prototype: HTMLPeachProductCardElement;
@@ -63,6 +103,32 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface PeachProductCard {
+        /**
+          * The category badge text
+          * @default 'Supplement'
+         */
+        "category"?: string;
+        /**
+          * Array of product image URLs
+          * @default []
+         */
+        "images"?: string[];
+        /**
+          * Indicates if the product is on sale
+          * @default false
+         */
+        "isSale"?: boolean;
+        "onAddToCart"?: (event: PeachProductCardCustomEvent<any>) => void;
+        /**
+          * The price display
+          * @default '$0.00'
+         */
+        "price"?: string;
+        /**
+          * The product title
+          * @default 'Premium Peach Nutrition'
+         */
+        "productTitle"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
