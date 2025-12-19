@@ -1,23 +1,14 @@
 <mat-nav-list class="navlist">
   @for (item of routingConfig.navItems; track item.route) {
     <a
-      mat-nav-list-item
-      mat-button
-      class="nav-button"
+      mat-list-item
       [routerLink]="item.route"
-      [queryParams]="item.queryParams"
       routerLinkActive="mat-list-item-active"
+      #rla="routerLinkActive"
+      [activated]="rla.isActive"
       [routerLinkActiveOptions]="{ exact: item.route === '/' }"
+      (click)="click.emit()"
+      >{{ item.label }}</a
     >
-      <ng-container *ngIf="image; else showIcon">
-        <img [src]="image" [alt]="label" loading="lazy" />
-      </ng-container>
-
-      <ng-template #showIcon>
-        <mat-icon>{{ icon }}</mat-icon>
-      </ng-template>
-
-      <span *ngIf="label">{{ label }}</span>
-    </a>
   }
 </mat-nav-list>
