@@ -29,4 +29,8 @@ export class ProductDetailComponent implements AfterViewInit {
   ngAfterViewInit() {
     console.log('product in detail is', this.product);
   }
+
+  onSave(){
+    console.log('Save button clicked');
+  }
 }

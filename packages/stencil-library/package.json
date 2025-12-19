@@ -1,5 +1,5 @@
 {
-  "name": "@peach/stencil-library",
+  "name": "stencil-library",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
@@ -13,10 +13,14 @@
       "import": "./dist/stencil-library/stencil-library.esm.js",
       "require": "./dist/stencil-library/stencil-library.cjs.js"
     },
+    "./my-component": {
+      "import": "./dist/components/my-component.js",
+      "types": "./dist/components/my-component.d.ts"
+    },
     "./loader": {
+      "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
+      "require": "./loader/index.cjs"
     }
   },
   "repository": {

@@ -6,98 +6,162 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface PeachProductCard {
+    interface PeachButton {
         /**
-          * The category badge text
-          * @default 'Supplement'
-         */
-        "category": string;
-        /**
-          * Array of product image URLs
-          * @default []
-         */
-        "images": string[];
-        /**
-          * Indicates if the product is on sale
+          * Disables the button interaction
           * @default false
          */
-        "isSale": boolean;
+        "disabled": boolean;
         /**
-          * The price display
-          * @default '$0.00'
+          * The visual style of the button
+          * @default 'primary'
          */
-        "price": string;
+        "variant": 'primary' | 'secondary' | 'outline';
+    }
+    interface PeachInput {
         /**
-          * The product title
-          * @default 'Premium Peach Nutrition'
+          * The label text above the input
+          * @default ''
          */
-        "productTitle": string;
+        "label": string;
+        /**
+          * The placeholder text
+          * @default 'Enter text...'
+         */
+        "placeholder": string;
+        /**
+          * The current value
+          * @default ''
+         */
+        "value": string;
+    }
+    interface PeachStatusBadge {
+        /**
+          * @default 'Active'
+         */
+        "label": string;
+        /**
+          * @default 'success'
+         */
+        "status": 'success' | 'warning' | 'error';
     }
 }
-export interface PeachProductCardCustomEvent<T> extends CustomEvent<T> {
+export interface PeachButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLPeachProductCardElement;
+    target: HTMLPeachButtonElement;
+}
+export interface PeachInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLPeachInputElement;
 }
 declare global {
-    interface HTMLPeachProductCardElementEventMap {
-        "addToCart": any;
+    interface HTMLPeachButtonElementEventMap {
+        "peachClick": any;
     }
-    interface HTMLPeachProductCardElement extends Components.PeachProductCard, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLPeachProductCardElementEventMap>(type: K, listener: (this: HTMLPeachProductCardElement, ev: PeachProductCardCustomEvent<HTMLPeachProductCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLPeachButtonElement extends Components.PeachButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPeachButtonElementEventMap>(type: K, listener: (this: HTMLPeachButtonElement, ev: PeachButtonCustomEvent<HTMLPeachButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLPeachProductCardElementEventMap>(type: K, listener: (this: HTMLPeachProductCardElement, ev: PeachProductCardCustomEvent<HTMLPeachProductCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPeachButtonElementEventMap>(type: K, listener: (this: HTMLPeachButtonElement, ev: PeachButtonCustomEvent<HTMLPeachButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLPeachProductCardElement: {
-        prototype: HTMLPeachProductCardElement;
-        new (): HTMLPeachProductCardElement;
+    var HTMLPeachButtonElement: {
+        prototype: HTMLPeachButtonElement;
+        new (): HTMLPeachButtonElement;
+    };
+    interface HTMLPeachInputElementEventMap {
+        "valueChange": string;
+    }
+    interface HTMLPeachInputElement extends Components.PeachInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLPeachInputElementEventMap>(type: K, listener: (this: HTMLPeachInputElement, ev: PeachInputCustomEvent<HTMLPeachInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLPeachInputElementEventMap>(type: K, listener: (this: HTMLPeachInputElement, ev: PeachInputCustomEvent<HTMLPeachInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLPeachInputElement: {
+        prototype: HTMLPeachInputElement;
+        new (): HTMLPeachInputElement;
+    };
+    interface HTMLPeachStatusBadgeElement extends Components.PeachStatusBadge, HTMLStencilElement {
+    }
+    var HTMLPeachStatusBadgeElement: {
+        prototype: HTMLPeachStatusBadgeElement;
+        new (): HTMLPeachStatusBadgeElement;
     };
     interface HTMLElementTagNameMap {
-        "peach-product-card": HTMLPeachProductCardElement;
+        "peach-button": HTMLPeachButtonElement;
+        "peach-input": HTMLPeachInputElement;
+        "peach-status-badge": HTMLPeachStatusBadgeElement;
     }
 }
 declare namespace LocalJSX {
-    interface PeachProductCard {
+    interface PeachButton {
         /**
-          * The category badge text
-          * @default 'Supplement'
-         */
-        "category"?: string;
-        /**
-          * Array of product image URLs
-          * @default []
-         */
-        "images"?: string[];
-        /**
-          * Indicates if the product is on sale
+          * Disables the button interaction
           * @default false
          */
-        "isSale"?: boolean;
-        "onAddToCart"?: (event: PeachProductCardCustomEvent<any>) => void;
+        "disabled"?: boolean;
         /**
-          * The price display
-          * @default '$0.00'
+          * Emitted when the button is clicked
          */
-        "price"?: string;
+        "onPeachClick"?: (event: PeachButtonCustomEvent<any>) => void;
         /**
-          * The product title
-          * @default 'Premium Peach Nutrition'
+          * The visual style of the button
+          * @default 'primary'
          */
-        "productTitle"?: string;
+        "variant"?: 'primary' | 'secondary' | 'outline';
+    }
+    interface PeachInput {
+        /**
+          * The label text above the input
+          * @default ''
+         */
+        "label"?: string;
+        /**
+          * Emitted when the value changes
+         */
+        "onValueChange"?: (event: PeachInputCustomEvent<string>) => void;
+        /**
+          * The placeholder text
+          * @default 'Enter text...'
+         */
+        "placeholder"?: string;
+        /**
+          * The current value
+          * @default ''
+         */
+        "value"?: string;
+    }
+    interface PeachStatusBadge {
+        /**
+          * @default 'Active'
+         */
+        "label"?: string;
+        /**
+          * @default 'success'
+         */
+        "status"?: 'success' | 'warning' | 'error';
     }
     interface IntrinsicElements {
-        "peach-product-card": PeachProductCard;
+        "peach-button": PeachButton;
+        "peach-input": PeachInput;
+        "peach-status-badge": PeachStatusBadge;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "peach-product-card": LocalJSX.PeachProductCard & JSXBase.HTMLAttributes<HTMLPeachProductCardElement>;
+            "peach-button": LocalJSX.PeachButton & JSXBase.HTMLAttributes<HTMLPeachButtonElement>;
+            "peach-input": LocalJSX.PeachInput & JSXBase.HTMLAttributes<HTMLPeachInputElement>;
+            "peach-status-badge": LocalJSX.PeachStatusBadge & JSXBase.HTMLAttributes<HTMLPeachStatusBadgeElement>;
         }
     }
 }

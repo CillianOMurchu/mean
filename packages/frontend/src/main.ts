@@ -1,8 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { defineCustomElements } from '../../stencil-library/loader';
 import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
-
-import { defineCustomElements } from '@peach/stencil-library/loader';
 
 defineCustomElements();
 

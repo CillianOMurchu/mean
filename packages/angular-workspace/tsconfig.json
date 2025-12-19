@@ -1,13 +1,23 @@
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
+  "extends": "../../tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "stencil-library": ["../stencil-library/dist"],
-      "stencil-library/components/*": ["../stencil-library/dist/components/*"]
-    },
     "outDir": "./dist/out-tsc",
+    "baseUrl": ".",
+    "paths": {
+      /* This maps the package name to your local Stencil build.
+         The proxies look for 'stencil-library/components', so we map the root 
+         and the sub-paths.
+      */
+      "stencil-library": ["../stencil-library/dist"],
+      "stencil-library/components": ["../stencil-library/dist/components"],
+      "stencil-library/components/*": ["../stencil-library/dist/components/*"],
+      "stencil-library/dist/types/components": [
+        "../stencil-library/dist/types/components/index"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -17,7 +27,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022"

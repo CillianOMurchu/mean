@@ -2,9 +2,11 @@
   <p>No product data available</p>
 } @else {
   <div class="card">
-    <peach-product-card> </peach-product-card>
+    <peach-status-badge></peach-status-badge>
+    <peach-input></peach-input>
 
-    <peach-button></peach-button>
+    <peach-button variant="primary" (peachClick)="onSave()">
+      Save Changes
+    </peach-button>
   </div>
-  Card above
 }

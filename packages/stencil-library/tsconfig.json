@@ -1,19 +1,22 @@
 {
   "extends": "../../tsconfig.json",
+  "typeRoots": ["./node_modules/@types", "../../node_modules/@types", "./src"],
   "compilerOptions": {
-    "outDir": "dist",
-    "lib": ["dom", "es2022"],
-    "types": ["node", "@stencil/core", "@types/jest"],
-    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
     "experimentalDecorators": true,
+    "lib": ["dom", "es2022"],
+    "types": ["node", "@stencil/core", "jest"],
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es2022",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "jsx": "react",
     "jsxFactory": "h",
     "jsxFragmentFactory": "h.Fragment"
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

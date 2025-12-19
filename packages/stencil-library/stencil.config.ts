@@ -22,9 +22,9 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: 'stencil-library',
-      outputType: 'component',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
+      outputType: 'standalone', // Use standalone for modern Angular
     }),
   ],
   testing: {
