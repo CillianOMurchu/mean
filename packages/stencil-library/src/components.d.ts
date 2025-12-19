@@ -20,18 +20,30 @@ export namespace Components {
     }
     interface PeachCard {
         /**
-          * Optional title for the card header
+          * Optional Badge text (e.g. 'Sale', 'New')
          */
-        "cardTitle"?: string;
+        "badge"?: string;
         /**
-          * Controls whether the card has a hover lifting effect
-          * @default true
+          * Currency symbol
+          * @default '€'
          */
-        "hoverable": boolean;
+        "currency": string;
         /**
-          * Optional subtitle or category text
+          * Image source URL
          */
-        "subtitle"?: string;
+        "imgSrc": string;
+        /**
+          * Regular Price
+         */
+        "price": number;
+        /**
+          * Product Name
+         */
+        "productName": string;
+        /**
+          * Optional Sale Price
+         */
+        "salePrice"?: number;
     }
     interface PeachInput {
         /**
@@ -142,18 +154,30 @@ declare namespace LocalJSX {
     }
     interface PeachCard {
         /**
-          * Optional title for the card header
+          * Optional Badge text (e.g. 'Sale', 'New')
          */
-        "cardTitle"?: string;
+        "badge"?: string;
         /**
-          * Controls whether the card has a hover lifting effect
-          * @default true
+          * Currency symbol
+          * @default '€'
          */
-        "hoverable"?: boolean;
+        "currency"?: string;
         /**
-          * Optional subtitle or category text
+          * Image source URL
          */
-        "subtitle"?: string;
+        "imgSrc"?: string;
+        /**
+          * Regular Price
+         */
+        "price"?: number;
+        /**
+          * Product Name
+         */
+        "productName"?: string;
+        /**
+          * Optional Sale Price
+         */
+        "salePrice"?: number;
     }
     interface PeachInput {
         /**

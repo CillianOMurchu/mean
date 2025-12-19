@@ -6,35 +6,84 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class PeachCard {
-  /** Optional title for the card header */
-  @Prop() cardTitle?: string;
-  
-  /** Optional subtitle or category text */
-  @Prop() subtitle?: string;
+  /** Image source URL */
+  @Prop() imgSrc = '';
+  /** Product Name */
+  @Prop() productName: string;
+  /** Regular Price */
+  @Prop() price: number;
+  /** Optional Sale Price */
+  @Prop() salePrice?: number;
+  /** Optional Badge text (e.g. 'Sale', 'New') */
+  @Prop() badge?: string;
+  /** Currency symbol */
+  @Prop() currency: string = '€';
 
-  /** Controls whether the card has a hover lifting effect */
-  @Prop() hoverable: boolean = true;
+  private formatPrice(val: number) {
+    return val.toLocaleString('de-DE', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
 
   render() {
+    const isOnSale = !!this.salePrice && this.salePrice < this.price;
+
     return (
       <Host>
-        <div class={{
-          'card': true,
-          'is-hoverable': this.hoverable
-        }}>
-          {(this.cardTitle || this.subtitle) && (
-            <div class="header">
-              {this.subtitle && <span class="subtitle">{this.subtitle}</span>}
-              {this.cardTitle && <h2 class="title">{this.cardTitle}</h2>}
-            </div>
-          )}
-          
-          <div class="body">
-            <slot></slot>
+        <div class="card">
+          <div class="card__image-container">
+            {this.imgSrc ? <img src={this.imgSrc} alt={this.productName} class="card__image" /> : <div class="card__image-placeholder" />}
+
+            {this.badge && (
+              <div class="card__badge bottom left">
+                <span class="badge">{this.badge}</span>
+              </div>
+            )}
           </div>
 
-          <div class="footer">
-            <slot name="footer"></slot>
+          <div class="card__content">
+            <div class="card__information">
+              <h3 class="card__heading" id="title-product-detail">
+                {this.productName}
+              </h3>
+
+              <div class="card-information">
+                <div class={isOnSale ? 'price price--on-sale' : 'price'}>
+                  <div class="price__container">
+                    {/* Regular Price (Stripped through if on sale) */}
+                    <div class="price__regular">
+                      <span class="visually-hidden">Regular price</span>
+                      <span class="price-item price-item--regular">
+                        {isOnSale ? (
+                          <s>
+                            {this.currency}
+                            {this.formatPrice(this.price)}
+                          </s>
+                        ) : (
+                          `${this.currency}${this.formatPrice(this.price)}`
+                        )}
+                      </span>
+                    </div>
+
+                    {/* Sale Price (Displayed only if on sale) */}
+                    {isOnSale && (
+                      <div class="price__sale">
+                        <span class="visually-hidden">Sale price</span>
+                        <span class="price-item price-item--sale">
+                          {this.currency}
+                          {this.formatPrice(this.salePrice!)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card__actions">
+              <slot name="actions"></slot>
+            </div>
           </div>
         </div>
       </Host>

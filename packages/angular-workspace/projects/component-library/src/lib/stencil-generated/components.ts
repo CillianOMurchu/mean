@@ -42,14 +42,14 @@ export declare interface PeachButton extends Components.PeachButton {
 
 @ProxyCmp({
   defineCustomElementFn: definePeachCard,
-  inputs: ['cardTitle', 'hoverable', 'subtitle']
+  inputs: ['badge', 'currency', 'imgSrc', 'price', 'productName', 'salePrice']
 })
 @Component({
   selector: 'peach-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['cardTitle', 'hoverable', 'subtitle'],
+  inputs: ['badge', 'currency', 'imgSrc', 'price', 'productName', 'salePrice'],
 })
 export class PeachCard {
   protected el: HTMLPeachCardElement;
