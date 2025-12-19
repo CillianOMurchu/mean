@@ -7,6 +7,7 @@ import { ProxyCmp } from './angular-component-lib/utils';
 import type { Components } from 'stencil-library/components';
 
 import { defineCustomElement as definePeachButton } from 'stencil-library/components/peach-button.js';
+import { defineCustomElement as definePeachCard } from 'stencil-library/components/peach-card.js';
 import { defineCustomElement as definePeachInput } from 'stencil-library/components/peach-input.js';
 import { defineCustomElement as definePeachStatusBadge } from 'stencil-library/components/peach-status-badge.js';
 @ProxyCmp({
@@ -37,6 +38,29 @@ export declare interface PeachButton extends Components.PeachButton {
    */
   peachClick: EventEmitter<CustomEvent<any>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: definePeachCard,
+  inputs: ['cardTitle', 'hoverable', 'subtitle']
+})
+@Component({
+  selector: 'peach-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['cardTitle', 'hoverable', 'subtitle'],
+})
+export class PeachCard {
+  protected el: HTMLPeachCardElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PeachCard extends Components.PeachCard {}
 
 
 @ProxyCmp({

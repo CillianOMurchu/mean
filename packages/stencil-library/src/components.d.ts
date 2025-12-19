@@ -18,6 +18,21 @@ export namespace Components {
          */
         "variant": 'primary' | 'secondary' | 'outline';
     }
+    interface PeachCard {
+        /**
+          * Optional title for the card header
+         */
+        "cardTitle"?: string;
+        /**
+          * Controls whether the card has a hover lifting effect
+          * @default true
+         */
+        "hoverable": boolean;
+        /**
+          * Optional subtitle or category text
+         */
+        "subtitle"?: string;
+    }
     interface PeachInput {
         /**
           * The label text above the input
@@ -72,6 +87,12 @@ declare global {
         prototype: HTMLPeachButtonElement;
         new (): HTMLPeachButtonElement;
     };
+    interface HTMLPeachCardElement extends Components.PeachCard, HTMLStencilElement {
+    }
+    var HTMLPeachCardElement: {
+        prototype: HTMLPeachCardElement;
+        new (): HTMLPeachCardElement;
+    };
     interface HTMLPeachInputElementEventMap {
         "valueChange": string;
     }
@@ -97,6 +118,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "peach-button": HTMLPeachButtonElement;
+        "peach-card": HTMLPeachCardElement;
         "peach-input": HTMLPeachInputElement;
         "peach-status-badge": HTMLPeachStatusBadgeElement;
     }
@@ -117,6 +139,21 @@ declare namespace LocalJSX {
           * @default 'primary'
          */
         "variant"?: 'primary' | 'secondary' | 'outline';
+    }
+    interface PeachCard {
+        /**
+          * Optional title for the card header
+         */
+        "cardTitle"?: string;
+        /**
+          * Controls whether the card has a hover lifting effect
+          * @default true
+         */
+        "hoverable"?: boolean;
+        /**
+          * Optional subtitle or category text
+         */
+        "subtitle"?: string;
     }
     interface PeachInput {
         /**
@@ -151,6 +188,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "peach-button": PeachButton;
+        "peach-card": PeachCard;
         "peach-input": PeachInput;
         "peach-status-badge": PeachStatusBadge;
     }
@@ -160,6 +198,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "peach-button": LocalJSX.PeachButton & JSXBase.HTMLAttributes<HTMLPeachButtonElement>;
+            "peach-card": LocalJSX.PeachCard & JSXBase.HTMLAttributes<HTMLPeachCardElement>;
             "peach-input": LocalJSX.PeachInput & JSXBase.HTMLAttributes<HTMLPeachInputElement>;
             "peach-status-badge": LocalJSX.PeachStatusBadge & JSXBase.HTMLAttributes<HTMLPeachStatusBadgeElement>;
         }
