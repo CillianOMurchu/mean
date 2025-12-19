@@ -2,7 +2,6 @@
 @use "tailwindcss";
 @use "app/styles/variables.scss";
 
-
 @font-face {
   font-family: "DM_SERIF_ITALIC";
   src: url("/fonts/DM_SERIF_ITALIC.woff2") format("woff2");
@@ -62,6 +61,10 @@ svg {
   align-items: center;
   display: grid;
   justify-items: center;
+}
+
+.mat-grid-tile-content {
+  height: fit-content;
 }
 
 // global animations

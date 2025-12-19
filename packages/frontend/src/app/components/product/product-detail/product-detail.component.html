@@ -1,20 +1,25 @@
 @if (!product) {
   <p>No product data available</p>
+}
+@if (!safeImages) {
+  <p>No images available for this product</p>
 } @else {
-  <div class="card">
-    <peach-status-badge></peach-status-badge>
-    <peach-input></peach-input>
+  <!-- <div class="container"> -->
+  <!-- <img src="{{ safeImages[0].src }}" alt="" /> -->
+  <!-- </div> -->
 
-    <peach-button variant="primary" (peachClick)="onSave()">
-      Save Changes
-    </peach-button>
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <img src="{{ safeImages[0].src }}" alt="" />
+      </mat-expansion-panel-header>
 
-    <peach-card cardTitle="Healthy Living" subtitle="Nutrition Tips">
-      <p>Peaches are a great source of Vitamin C and dietary fiber!</p>
-
-      <div slot="footer">
-        <peach-button variant="outline">Read More</peach-button>
+      <div class="product-details">
+        <h2>{{ product?.name }}</h2>
+        <p>{{ product?.description }}</p>
+        <p>Price: {{ product?.price | currency }}</p>
+        <p>Category: {{ product?.category }}</p>
       </div>
-    </peach-card>
-  </div>
+    </mat-expansion-panel>
+  </mat-accordion>
 }

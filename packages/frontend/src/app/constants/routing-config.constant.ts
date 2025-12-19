@@ -7,7 +7,12 @@ const ROUTES = {
 const routingConfig = {
   navItems: [
     { label: 'Home', icon: 'home', route: ROUTES.home },
-    { label: 'Products', icon: 'storefront', route: ROUTES.products },
+    {
+      label: 'Products',
+      icon: 'storefront',
+      route: ROUTES.products,
+      isTree: true,
+    },
     { label: 'Contact', icon: 'contact_mail', route: ROUTES.contact },
   ],
   footerItems: [
