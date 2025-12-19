@@ -9,11 +9,11 @@
 
 | Property      | Attribute      | Description                              | Type                  | Default     |
 | ------------- | -------------- | ---------------------------------------- | --------------------- | ----------- |
-| `badge`       | `badge`        | Optional Badge text (e.g. 'Sale', 'New') | `string \| undefined` | `undefined` |
+| `badge`       | `badge`        | Optional Badge text (e.g. 'Sale', 'New') | `string \| undefined` | `''`        |
 | `currency`    | `currency`     | Currency symbol                          | `string`              | `'€'`       |
-| `imgSrc`      | `img-src`      | Image source URL                         | `string`              | `undefined` |
-| `price`       | `price`        | Regular Price                            | `number`              | `undefined` |
-| `productName` | `product-name` | Product Name                             | `string`              | `undefined` |
+| `imgSrc`      | `img-src`      | Image source URL                         | `string`              | `''`        |
+| `price`       | `price`        | Regular Price                            | `null \| number`      | `null`      |
+| `productName` | `product-name` | Product Name                             | `string`              | `''`        |
 | `salePrice`   | `sale-price`   | Optional Sale Price                      | `number \| undefined` | `undefined` |
 
 

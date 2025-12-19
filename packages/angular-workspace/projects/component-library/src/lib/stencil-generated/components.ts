@@ -9,6 +9,7 @@ import type { Components } from 'stencil-library/components';
 import { defineCustomElement as definePeachButton } from 'stencil-library/components/peach-button.js';
 import { defineCustomElement as definePeachCard } from 'stencil-library/components/peach-card.js';
 import { defineCustomElement as definePeachInput } from 'stencil-library/components/peach-input.js';
+import { defineCustomElement as definePeachSmiley } from 'stencil-library/components/peach-smiley.js';
 import { defineCustomElement as definePeachStatusBadge } from 'stencil-library/components/peach-status-badge.js';
 @ProxyCmp({
   defineCustomElementFn: definePeachButton,
@@ -91,6 +92,28 @@ export declare interface PeachInput extends Components.PeachInput {
    */
   valueChange: EventEmitter<CustomEvent<string>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: definePeachSmiley
+})
+@Component({
+  selector: 'peach-smiley',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [],
+})
+export class PeachSmiley {
+  protected el: HTMLPeachSmileyElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface PeachSmiley extends Components.PeachSmiley {}
 
 
 @ProxyCmp({

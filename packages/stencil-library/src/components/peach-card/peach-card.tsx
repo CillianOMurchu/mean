@@ -9,25 +9,30 @@ export class PeachCard {
   /** Image source URL */
   @Prop() imgSrc = '';
   /** Product Name */
-  @Prop() productName: string;
+  @Prop() productName = '';
   /** Regular Price */
-  @Prop() price: number;
+  @Prop() price: number | null = null;
   /** Optional Sale Price */
   @Prop() salePrice?: number;
   /** Optional Badge text (e.g. 'Sale', 'New') */
-  @Prop() badge?: string;
+  @Prop() badge? = '';
   /** Currency symbol */
   @Prop() currency: string = '€';
 
-  private formatPrice(val: number) {
-    return val.toLocaleString('de-DE', {
+  private formatPrice(val: number | null) {
+    if (val === null) return '';
+    
+    return val.toLocaleString('en-EN', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
   }
 
   render() {
-    const isOnSale = !!this.salePrice && this.salePrice < this.price;
+   const isOnSale = 
+      typeof this.salePrice === 'number' &&
+      typeof this.price === 'number' &&
+      this.salePrice < this.price;
 
     return (
       <Host>

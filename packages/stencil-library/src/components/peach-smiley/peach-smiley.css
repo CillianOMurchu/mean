@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+:host {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+.face-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.face-skin {
+  fill: #ffdb58;
+  stroke: #333;
+  stroke-width: 2;
+}
+
+.eye-white {
+  fill: white;
+}
+
+.pupil {
+  fill: #333;
+  /* Smooths out the eye movement tracking */
+  transition: transform 0.1s ease-out;
+  transform-origin: center;
+}
+
+.mouth {
+  fill: none;
+  stroke: #333;
+  stroke-width: 3;
+  stroke-linecap: round;
+  /* This makes the smile/frown morph smoothly */
+  transition: d 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

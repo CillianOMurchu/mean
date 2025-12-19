@@ -21,8 +21,9 @@ export namespace Components {
     interface PeachCard {
         /**
           * Optional Badge text (e.g. 'Sale', 'New')
+          * @default ''
          */
-        "badge"?: string;
+        "badge"?: string | undefined;
         /**
           * Currency symbol
           * @default '€'
@@ -30,14 +31,17 @@ export namespace Components {
         "currency": string;
         /**
           * Image source URL
+          * @default ''
          */
         "imgSrc": string;
         /**
           * Regular Price
+          * @default null
          */
-        "price": number;
+        "price": number | null;
         /**
           * Product Name
+          * @default ''
          */
         "productName": string;
         /**
@@ -61,6 +65,8 @@ export namespace Components {
           * @default ''
          */
         "value": string;
+    }
+    interface PeachSmiley {
     }
     interface PeachStatusBadge {
         /**
@@ -122,6 +128,12 @@ declare global {
         prototype: HTMLPeachInputElement;
         new (): HTMLPeachInputElement;
     };
+    interface HTMLPeachSmileyElement extends Components.PeachSmiley, HTMLStencilElement {
+    }
+    var HTMLPeachSmileyElement: {
+        prototype: HTMLPeachSmileyElement;
+        new (): HTMLPeachSmileyElement;
+    };
     interface HTMLPeachStatusBadgeElement extends Components.PeachStatusBadge, HTMLStencilElement {
     }
     var HTMLPeachStatusBadgeElement: {
@@ -132,6 +144,7 @@ declare global {
         "peach-button": HTMLPeachButtonElement;
         "peach-card": HTMLPeachCardElement;
         "peach-input": HTMLPeachInputElement;
+        "peach-smiley": HTMLPeachSmileyElement;
         "peach-status-badge": HTMLPeachStatusBadgeElement;
     }
 }
@@ -155,8 +168,9 @@ declare namespace LocalJSX {
     interface PeachCard {
         /**
           * Optional Badge text (e.g. 'Sale', 'New')
+          * @default ''
          */
-        "badge"?: string;
+        "badge"?: string | undefined;
         /**
           * Currency symbol
           * @default '€'
@@ -164,14 +178,17 @@ declare namespace LocalJSX {
         "currency"?: string;
         /**
           * Image source URL
+          * @default ''
          */
         "imgSrc"?: string;
         /**
           * Regular Price
+          * @default null
          */
-        "price"?: number;
+        "price"?: number | null;
         /**
           * Product Name
+          * @default ''
          */
         "productName"?: string;
         /**
@@ -200,6 +217,8 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface PeachSmiley {
+    }
     interface PeachStatusBadge {
         /**
           * @default 'Active'
@@ -214,6 +233,7 @@ declare namespace LocalJSX {
         "peach-button": PeachButton;
         "peach-card": PeachCard;
         "peach-input": PeachInput;
+        "peach-smiley": PeachSmiley;
         "peach-status-badge": PeachStatusBadge;
     }
 }
@@ -224,6 +244,7 @@ declare module "@stencil/core" {
             "peach-button": LocalJSX.PeachButton & JSXBase.HTMLAttributes<HTMLPeachButtonElement>;
             "peach-card": LocalJSX.PeachCard & JSXBase.HTMLAttributes<HTMLPeachCardElement>;
             "peach-input": LocalJSX.PeachInput & JSXBase.HTMLAttributes<HTMLPeachInputElement>;
+            "peach-smiley": LocalJSX.PeachSmiley & JSXBase.HTMLAttributes<HTMLPeachSmileyElement>;
             "peach-status-badge": LocalJSX.PeachStatusBadge & JSXBase.HTMLAttributes<HTMLPeachStatusBadgeElement>;
         }
     }
