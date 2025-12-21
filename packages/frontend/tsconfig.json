@@ -20,7 +20,7 @@
     "rootDir": "./",
     "paths": {
       "@services/*": ["./src/app/services/*"],
-      "@models/*": ["./src/app/models/*"],
+      "@models/*": ["src/app/types/*"],
       "@components/*": ["./src/app/components/*"],
       "@pages/*": ["./src/app/pages/*"],
       "@assets/*": ["./public/*"],

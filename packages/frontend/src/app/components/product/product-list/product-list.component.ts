@@ -6,13 +6,13 @@ import {
 } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
-import { ProductType } from '@models/product-type';
+import { ProductCardComponent } from '@components/product/product-card/product-card.component';
 import { ApiService } from '@services/api.service';
-import { ProductDetailComponent } from './../product-detail/product-detail.component';
+import { ProductType } from 'src/app/types/product.interface';
 
 @Component({
   selector: 'app-product-list',
-  imports: [ProductDetailComponent, MatGridListModule, MatListModule],
+  imports: [ProductCardComponent, MatGridListModule, MatListModule],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,11 +22,13 @@ export class ProductListComponent {
 
   isLoading = this.api.isLoading;
   error = this.api.error;
-  products = this.api.products;
+  protected products = this.api.products;
 
   barebells = computed(() =>
-    this.products().filter(
-      (product: ProductType) => product.name?.includes('Barebells'),
+    this.products()
+  .filter((product: ProductType) =>
+      product.name?.includes('Barebells'),
     ),
   );
+  
 }

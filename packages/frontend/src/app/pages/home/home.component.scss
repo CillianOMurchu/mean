@@ -7,6 +7,9 @@
   height: 600px;
   width: 100vw;
 
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding: 0 24px 48px 24px;
   .overlay {
     position: absolute;
     top: 0;
@@ -18,9 +21,8 @@
   }
 
   .headline {
-    position: absolute;
-    left: 24px;
-    bottom: 24px;
+    justify-self: flex-start;
+    align-self: flex-end;
     color: #fff;
     font-size: 40px;
     display: flex;
@@ -48,6 +50,12 @@
   }
   .word:nth-child(3) {
     animation-delay: 480ms;
+  } 
+
+  .cta-container {
+    // justify-self: center;
+    // z-index: 1;
+    // padding: 3rem 2rem;
   }
 
   @keyframes slideIn {

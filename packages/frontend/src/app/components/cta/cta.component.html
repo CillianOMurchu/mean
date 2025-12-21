@@ -1,0 +1,14 @@
+<div class="cta-container">
+  <a
+    mat-flat-button
+    class="banger-cta"
+    [class.banger-cta--full]="fullWidth"
+    [routerLink]="link()"
+    (click)="handleClick($event)"
+    [attr.aria-label]="ariaLabel || label || title()"
+    [attr.aria-disabled]="disabled"
+    [disabled]="disabled"
+  >
+    <mat-icon svgIcon="cart-icon" class="banger-cta__icon" aria-hidden="true"></mat-icon>
+  </a>
+</div>

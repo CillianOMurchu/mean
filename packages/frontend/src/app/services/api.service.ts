@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, resource, Signal } from '@angular/core';
 import { environment } from '@environments/environment';
-import { ProductType } from '@models/product-type';
 import { firstValueFrom } from 'rxjs';
+import { ProductType } from 'src/app/types/product.interface';
 
 @Injectable({
   providedIn: 'root',

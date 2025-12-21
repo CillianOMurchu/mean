@@ -67,6 +67,10 @@ svg {
   height: fit-content;
 }
 
+.mat-mdc-unelevated-button > .mat-icon {
+  margin: 0 !important;
+}
+
 // global animations
 @keyframes slideFadeIn {
   0% {

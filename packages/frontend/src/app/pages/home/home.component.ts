@@ -1,9 +1,10 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CtaComponent } from '@components/cta/cta.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink],
+  imports: [RouterLink, CtaComponent],
   providers: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

@@ -1,0 +1,9 @@
+<article class="product-card">
+  <div class="product-card__image">
+    @if (safeImages && safeImages.length > 0) {
+      <img [src]="safeImages[0].src" [alt]="product?.name" loading="lazy" />
+    } @else {
+      <img src="/assets/placeholder.png" [alt]="product?.name" loading="lazy" />
+    }
+  </div>
+</article>
