@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
-import { ProductCardComponent } from '@components/product-card/product-card.component';
+import { ProductCardComponent } from '@components/product/product-card/product-card.component';
 import { ApiService } from '@services/api.service';
 import { ProductType } from 'src/app/types/product.interface';
 
