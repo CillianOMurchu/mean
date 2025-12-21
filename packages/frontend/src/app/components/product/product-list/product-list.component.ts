@@ -25,8 +25,10 @@ export class ProductListComponent {
   protected products = this.api.products;
 
   barebells = computed(() =>
-    this.products().filter((product: ProductType) =>
+    this.products()
+  .filter((product: ProductType) =>
       product.name?.includes('Barebells'),
     ),
   );
+  
 }

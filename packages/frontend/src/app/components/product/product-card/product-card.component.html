@@ -1,15 +1,60 @@
-@if (product) {
-  <mat-card class="product-card">
-    <img mat-card-image [src]="product.images[0].src" [alt]="product.name" />
+<ng-container *ngIf="product as p">
+  <article class="product-detail-card">
+    <div class="pd__image">
+      <img
+        [src]="p.images && p.images.length ? p.images[0].src : '/assets/placeholder.png'"
+        [alt]="p.name"
+        loading="lazy"
+      />
+    </div>
 
-    <mat-card-content>
-      <div class="product-details">
-        <h3 class="product-name">{{ product.name }}</h3>
-        <p class="product-price">
-          {{ product.price | currency: "EUR" : "symbol" : "1.2-2" }}
-        </p>
-        <p class="product-description">{{ product.description }}</p>
+    <div class="pd__meta">
+      <h1 class="pd__title">{{ p.name }}</h1>
+      <div class="pd__meta-row">
+        <span class="pd__category">{{ p.category }}</span>
+        <span class="pd__price">{{ p.price | currency: 'EUR':'symbol':'1.2-2' }}</span>
       </div>
-    </mat-card-content>
-  </mat-card>
-}
+
+      <p class="pd__desc">{{ p.description }}</p>
+
+      <div class="pd__info">
+        <div class="pd__serves">
+          <strong>{{ p.stockQuantity }}</strong>
+          <span>in stock</span>
+        </div>
+        <div class="pd__discount" *ngIf="p.discountPercentage">
+          <span>{{ p.discountPercentage }}% off</span>
+        </div>
+      </div>
+
+      <div class="pd__controls">
+        <div class="qty">
+          <button mat-icon-button (click)="decrement()" aria-label="Decrease quantity">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <div class="qty__value">{{ qty() }}</div>
+          <button mat-icon-button (click)="increment()" aria-label="Increase quantity">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+
+        <button mat-flat-button color="primary" class="add-btn" (click)="onAdd()">
+          <mat-icon svgIcon="cart-icon" aria-hidden="true"></mat-icon>
+          <span>Add to cart</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile sticky bar -->
+    <div class="pd__mobile-bar">
+      <div class="pd__mobile-left">
+        <div class="pd__mobile-price">{{ p.price | currency: 'EUR':'symbol' }}</div>
+        <div class="pd__mobile-qty">Qty: {{ qty() }}</div>
+      </div>
+      <button mat-flat-button color="primary" class="pd__mobile-add" (click)="onAdd()">
+        <mat-icon svgIcon="cart-icon" aria-hidden="true"></mat-icon>
+        <span>Add</span>
+      </button>
+    </div>
+  </article>
+</ng-container>

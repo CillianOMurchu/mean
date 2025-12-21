@@ -14,7 +14,7 @@ export class IconService {
   }
 
   registerIcons(): void {
-    const icons = ['steak', 'chess_knight'];
+    const icons = ['cart-icon'];
 
     icons.forEach((icon) => {
       this.matIconRegistry.addSvgIcon(

@@ -1,24 +1,20 @@
-@if (!product) {
+@if (!product()) {
   <p>No product data available</p>
 }
-@if (!safeImages) {
+@if (!safeImages()) {
   <p>No images available for this product</p>
 } @else {
-  <!-- <div class="container"> -->
-  <!-- <img src="{{ safeImages[0].src }}" alt="" /> -->
-  <!-- </div> -->
-
   <mat-accordion>
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
-        <img src="{{ safeImages[0].src }}" alt="" />
+        <img src="{{ heroImage() }}" alt="" />
       </mat-expansion-panel-header>
 
       <div class="product-details">
-        <h2>{{ product?.name }}</h2>
-        <p>{{ product?.description }}</p>
-        <p>Price: {{ product?.price | currency }}</p>
-        <p>Category: {{ product?.category }}</p>
+        <h2>{{ product()?.name }}</h2>
+        <p>{{ product()?.description }}</p>
+        <p>Price: {{ product()?.price | currency }}</p>
+        <p>Category: {{ product()?.category }}</p>
       </div>
     </mat-expansion-panel>
   </mat-accordion>

@@ -5,8 +5,9 @@
     <p>Error loading products</p>
   } @else {
     <div class="product-list">
-      @for (product of barebells(); track product._id) {
+      @for (product of products(); track product._id) {
         <app-product-card [product]="product"></app-product-card>
+        
       }
     </div>
   }
