@@ -4,8 +4,8 @@
   @if (error()) {
     <p>Error loading products</p>
   } @else {
-    @for (product of barebells(); track $index) {
-      <app-product-detail [product]="product"></app-product-detail>
+    @for (product of barebells(); track product._id) {
+      <app-product-card [product]="product"></app-product-card>
     }
   }
 }

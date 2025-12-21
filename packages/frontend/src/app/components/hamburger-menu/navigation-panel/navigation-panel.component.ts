@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 import { routingConfig } from '@constants/routing-config.constant';
@@ -8,6 +8,7 @@ import { routingConfig } from '@constants/routing-config.constant';
   imports: [MatListModule, RouterModule],
   templateUrl: './navigation-panel.component.html',
   styleUrl: './navigation-panel.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class NavigationPanelComponent {
   readonly routingConfig = routingConfig;

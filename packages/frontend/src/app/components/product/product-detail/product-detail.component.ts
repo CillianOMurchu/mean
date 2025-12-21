@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ProductType } from '@models/product-type';
+import { ProductType } from 'src/app/types/product.interface';
 
 @Component({
   selector: 'app-product-detail',

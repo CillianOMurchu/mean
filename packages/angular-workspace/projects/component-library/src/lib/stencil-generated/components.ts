@@ -1,10 +1,16 @@
 /* tslint:disable */
 /* auto-generated angular directive proxies */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Output, NgZone } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  NgZone,
+  Output,
+} from '@angular/core';
 
 import { ProxyCmp } from './angular-component-lib/utils';
-
-import type { Components } from 'stencil-library/components';
 
 import { defineCustomElement as definePeachButton } from 'stencil-library/components/peach-button.js';
 import { defineCustomElement as definePeachCard } from 'stencil-library/components/peach-card.js';
@@ -13,7 +19,7 @@ import { defineCustomElement as definePeachSmiley } from 'stencil-library/compon
 import { defineCustomElement as definePeachStatusBadge } from 'stencil-library/components/peach-status-badge.js';
 @ProxyCmp({
   defineCustomElementFn: definePeachButton,
-  inputs: ['disabled', 'variant']
+  inputs: ['disabled', 'variant'],
 })
 @Component({
   selector: 'peach-button',
@@ -26,12 +32,15 @@ import { defineCustomElement as definePeachStatusBadge } from 'stencil-library/c
 export class PeachButton {
   protected el: HTMLPeachButtonElement;
   @Output() peachClick = new EventEmitter<CustomEvent<any>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
 }
-
 
 export declare interface PeachButton extends Components.PeachButton {
   /**
@@ -40,10 +49,9 @@ export declare interface PeachButton extends Components.PeachButton {
   peachClick: EventEmitter<CustomEvent<any>>;
 }
 
-
 @ProxyCmp({
   defineCustomElementFn: definePeachCard,
-  inputs: ['badge', 'currency', 'imgSrc', 'price', 'productName', 'salePrice']
+  inputs: ['badge', 'currency', 'imgSrc', 'price', 'productName', 'salePrice'],
 })
 @Component({
   selector: 'peach-card',
@@ -54,19 +62,21 @@ export declare interface PeachButton extends Components.PeachButton {
 })
 export class PeachCard {
   protected el: HTMLPeachCardElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
 }
 
-
 export declare interface PeachCard extends Components.PeachCard {}
-
 
 @ProxyCmp({
   defineCustomElementFn: definePeachInput,
-  inputs: ['label', 'placeholder', 'value']
+  inputs: ['label', 'placeholder', 'value'],
 })
 @Component({
   selector: 'peach-input',
@@ -79,12 +89,15 @@ export declare interface PeachCard extends Components.PeachCard {}
 export class PeachInput {
   protected el: HTMLPeachInputElement;
   @Output() valueChange = new EventEmitter<CustomEvent<string>>();
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
 }
-
 
 export declare interface PeachInput extends Components.PeachInput {
   /**
@@ -93,9 +106,8 @@ export declare interface PeachInput extends Components.PeachInput {
   valueChange: EventEmitter<CustomEvent<string>>;
 }
 
-
 @ProxyCmp({
-  defineCustomElementFn: definePeachSmiley
+  defineCustomElementFn: definePeachSmiley,
 })
 @Component({
   selector: 'peach-smiley',
@@ -106,19 +118,21 @@ export declare interface PeachInput extends Components.PeachInput {
 })
 export class PeachSmiley {
   protected el: HTMLPeachSmileyElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
 }
 
-
 export declare interface PeachSmiley extends Components.PeachSmiley {}
-
 
 @ProxyCmp({
   defineCustomElementFn: definePeachStatusBadge,
-  inputs: ['label', 'status']
+  inputs: ['label', 'status'],
 })
 @Component({
   selector: 'peach-status-badge',
@@ -129,13 +143,14 @@ export declare interface PeachSmiley extends Components.PeachSmiley {}
 })
 export class PeachStatusBadge {
   protected el: HTMLPeachStatusBadgeElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+  constructor(
+    c: ChangeDetectorRef,
+    r: ElementRef,
+    protected z: NgZone,
+  ) {
     c.detach();
     this.el = r.nativeElement;
   }
 }
 
-
 export declare interface PeachStatusBadge extends Components.PeachStatusBadge {}
-
-
