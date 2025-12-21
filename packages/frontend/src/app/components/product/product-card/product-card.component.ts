@@ -18,7 +18,6 @@ export class ProductCardComponent {
       Array.isArray(this.product?.images) && this.product?.images.length
         ? this.product.images
         : null;
-    console.log('safeImages called, returning:', images);
     return images;
   }
 }

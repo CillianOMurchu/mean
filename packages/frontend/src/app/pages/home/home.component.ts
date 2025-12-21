@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CtaComponent } from '@components/cta/cta.component';
 
@@ -9,7 +9,7 @@ import { CtaComponent } from '@components/cta/cta.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   standalone: true,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [],
 })
 export class HomeComponent {
   onHandleClick() {

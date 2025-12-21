@@ -3,7 +3,6 @@ import {
   AfterViewInit,
   Component,
   computed,
-  CUSTOM_ELEMENTS_SCHEMA,
   input,
   signal,
 } from '@angular/core';
@@ -17,7 +16,7 @@ import { ProductType } from 'src/app/types/product.interface';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
   standalone: true,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [],
 })
 export class ProductDetailComponent implements AfterViewInit {
   product = input<ProductType | null>(null);
